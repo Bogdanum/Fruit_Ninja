@@ -1,16 +1,25 @@
+using System;
 using UnityEngine;
 
 public class CameraBorders : MonoBehaviour
 {
-    private static float _border = 0;
+    [SerializeField] private Camera camera;
 
-    public static float Border
+    public static CameraBorders Instance;
+    
+    private float _border = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public float Border
     {
         get
         {
             if (_border == 0)
             {
-                var camera = Camera.main;
                 _border = camera.aspect * camera.orthographicSize;
             }
             return _border;

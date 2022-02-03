@@ -1,20 +1,47 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpawnersController : MonoBehaviour
 {
-   [SerializeField] private float minRefireRate;
-   [SerializeField] private GameObject[] spawnersObjects;
+   [SerializeField] private SpawnerControllerSettings _settings;
+   [SerializeField] private GameObject[] spawners;
    
    private ISpawner[] _spawners;
-   private float fireTimer = 0;
+   private float _fireTimer = 0;
+   private float _initialrefireRate;
+   private float _minRefireRate;
+   private float _refireRateReductionStep;
 
    private void Awake()
    {
-      _spawners = new ISpawner[spawnersObjects.Length];
-      for (int i = 0; i < spawnersObjects.Length; i++)
+      Init();
+      InitSpawners();
+      GameplayEvents.IncreasingComplexity.AddListener(DecreaseRefireRate);
+   }
+
+   private void Init()
+   {
+      _initialrefireRate = _settings.initialRefireRate;
+      _minRefireRate = _settings.minRefireRate;
+      _refireRateReductionStep = _settings.refireRateReductionStep;
+   }
+
+   private void InitSpawners()
+   {
+      _spawners = new ISpawner[spawners.Length];
+      for (int i = 0; i < spawners.Length; i++)
       {
-         _spawners[i] = spawnersObjects[i].GetComponent<ISpawner>();
+         _spawners[i] = spawners[i].GetComponent<ISpawner>();
       }
+   }
+
+   private void DecreaseRefireRate()
+   {
+      if (_initialrefireRate - _minRefireRate < _refireRateReductionStep)
+      {
+         return;
+      }
+      _initialrefireRate -= _refireRateReductionStep;
    }
 
    private void Update()
@@ -24,11 +51,11 @@ public class SpawnersController : MonoBehaviour
          return;
       }
       
-      fireTimer += Time.deltaTime;
+      _fireTimer += Time.deltaTime;
 
-      if (fireTimer > minRefireRate)
+      if (_fireTimer > _initialrefireRate)
       {
-         fireTimer = 0;
+         _fireTimer = 0;
          ISpawner spawner = ChooseRandomSpawner();
          spawner.Launch();
       } 

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPackOfVegetablesSize: 2
   maxPackOfVegetablesSize: 3
+  finalMaxPackOfVegetablesSize: 5
+  numberOfComplicationsToIncreasePack: 6
   vegetableData: {fileID: 11400000, guid: d8d1073ce318e425a9483f5e0160acbe, type: 2}
   spawnChanceInPercent: 10
+  delayBetweenShotsInPack: 0.3

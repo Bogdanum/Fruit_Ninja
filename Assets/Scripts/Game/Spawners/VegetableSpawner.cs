@@ -13,6 +13,7 @@ public class VegetableSpawner : MonoBehaviour, ISpawner
     
     private int _minPackOfVegetablesSize;
     private int _maxPackOfVegetablesSize;
+    private int _complicationCounter = 0;
     private VegetableData _vegetableData;
     private VegetableData.VegetableProperties _vegetableProperties;
 
@@ -20,9 +21,31 @@ public class VegetableSpawner : MonoBehaviour, ISpawner
 
     private void Awake()
     {
+        GetParameters();
+        GameplayEvents.IncreasingComplexity.AddListener(IncreaseSizeOfPack);
+    }
+
+    private void GetParameters()
+    {
         _minPackOfVegetablesSize = spawnerSettings.minPackOfVegetablesSize;
         _maxPackOfVegetablesSize = spawnerSettings.maxPackOfVegetablesSize;
         _vegetableData = spawnerSettings.vegetableData;
+    }
+
+    private void IncreaseSizeOfPack()
+    {
+        if (_maxPackOfVegetablesSize >= spawnerSettings.finalMaxPackOfVegetablesSize)
+        {
+            return;
+        }
+        _complicationCounter++;
+
+        if (_complicationCounter > spawnerSettings.numberOfComplicationsToIncreasePack)
+        {
+            _complicationCounter = 0;
+            _minPackOfVegetablesSize++;
+            _maxPackOfVegetablesSize++;
+        }
     }
 
     public void Launch()

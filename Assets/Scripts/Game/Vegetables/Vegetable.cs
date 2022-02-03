@@ -1,20 +1,23 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Vegetable : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool Active { get; private set; }
-    
+
     private VegetableData.VegetableProperties _properties;
     private float _speed;
     private float _rotationSpeed;
     private float _verticalVelocity;
+    private float _minRotationSpeed;
+    private float _maxRotationSpeed;
 
     public void Init(VegetableData.VegetableProperties properties)
     {
         _properties = properties;
-        var spriteRend = GetComponent<SpriteRenderer>();
-        spriteRend.sprite = _properties.sprite;
+        spriteRenderer.sprite = properties.sprite;
+        _minRotationSpeed = properties.minRotationSpeed;
+        _maxRotationSpeed = properties.maxRotationSpeed;
     }
     
     public void Launch(float verticalVelocity, float speed, Vector3 startPosition)
@@ -28,7 +31,7 @@ public class Vegetable : MonoBehaviour
 
     private float RandomRotationSpeedAndDirection()
     {
-        float rotationSpeed =  Random.Range(20, 150);
+        float rotationSpeed = Random.Range(_minRotationSpeed, _maxRotationSpeed);
         int direction = Random.Range(0, 3);
         return direction > 1 ? rotationSpeed : -rotationSpeed;
     }
@@ -48,7 +51,7 @@ public class Vegetable : MonoBehaviour
     
     private bool OutOfBounds()
     {
-        return transform.position.y < -CameraBorders.Border;
+        return transform.position.y < -CameraBorders.Instance.Border;
     }
 
     private void GravityMotion()

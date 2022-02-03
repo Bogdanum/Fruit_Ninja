@@ -190,6 +190,7 @@ MonoBehaviour:
   minAngle: {fileID: 622222586103765657}
   maxAngle: {fileID: 622222585566481692}
   center: {fileID: 622222587264882729}
+  linesColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &622222587264882728
 GameObject:
   m_ObjectHideFlags: 0

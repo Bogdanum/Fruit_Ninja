@@ -17,11 +17,15 @@ MonoBehaviour:
     sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     gravity: 1.5
     speed: 5
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
     percent: 50
-    type: 0
+    vegetableType: 0
   - name: Circle
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     gravity: 1.5
     speed: 5
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
     percent: 50
-    type: 0
+    vegetableType: 0

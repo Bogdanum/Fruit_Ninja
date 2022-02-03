@@ -10,19 +10,12 @@ public class VegetableData : ScriptableObject
         public Sprite sprite;
         public float gravity;
         [Range(4, 6)] public float speed;
+        [Range(1, 20)] public float minRotationSpeed;
+        [Range(20, 180)] public float maxRotationSpeed;
         [Range(0, 100)] public float percent;
-        public Type type;
-        public enum Type
-        {
-            Vegetable,
-            Bomb,
-            ExtraLife,
-            StringBag,
-            Freeze,
-            Magnet
-        }
+        public VegetableTypeEnums.VegetableType vegetableType;
     }
-    
+
     [SerializeField] private VegetableProperties[] _vegetableProperties;
     
     public VegetableProperties GetRandomVegetableProperties()

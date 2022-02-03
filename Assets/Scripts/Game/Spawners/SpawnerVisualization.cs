@@ -10,7 +10,8 @@ public class SpawnerVisualization : MonoBehaviour
    [SerializeField] private Transform minAngle;
    [SerializeField] private Transform maxAngle;
    [SerializeField] private Transform center;
-
+   [SerializeField] private Color linesColor;
+   
    private void Update()
    {
       DisplaySpawnRange();
@@ -20,18 +21,17 @@ public class SpawnerVisualization : MonoBehaviour
 
    private void DisplaySpawnRange()
    {
-      maxLinePos.localPosition = new Vector3(Mathf.Abs(minLinePos.localPosition.x), Mathf.Abs(minLinePos.localPosition.y), 0);
-      Debug.DrawLine(minLinePos.position, maxLinePos.position, Color.green);
+      Debug.DrawLine(minLinePos.position, maxLinePos.position, linesColor);
    }
 
    private void DisplayMinLaunchAngle()
    {
-       Debug.DrawLine(center.position, minAngle.position, Color.green);
+      Debug.DrawLine(center.position, minAngle.position, linesColor);
    }
    
    private void DisplayMaxLaunchAngle()
    {
-      Debug.DrawLine(center.position, maxAngle.position, Color.green);
+      Debug.DrawLine(center.position, maxAngle.position, linesColor);
    }
    
 #endif

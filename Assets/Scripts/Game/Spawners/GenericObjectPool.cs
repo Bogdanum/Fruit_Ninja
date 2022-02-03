@@ -10,13 +10,17 @@ public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
     public static GenericObjectPool<T> Instance { get; private set; }
     private Queue<T> objectsQueue = new Queue<T>();
 
-    private void Awake() => Instance = this;
+    private void Awake()
+    {
+        Instance = this;
+        AddObjects(initialQuantity);
+    }
 
     public T Get()
     {
         if (objectsQueue.Count == 0)
         {
-            AddObjects(initialQuantity);
+            AddObjects(1);
         }
         return objectsQueue.Dequeue();
     }
