@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class VegetableSpawner : MonoBehaviour, ISpawner
+public class VegetableSpawner : Spawner, ISpawner
 {
     [SerializeField] private Transform minLinePos;
     [SerializeField] private Transform maxLinePos;

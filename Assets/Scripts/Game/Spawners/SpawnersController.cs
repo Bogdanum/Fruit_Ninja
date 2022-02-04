@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SpawnersController : MonoBehaviour
 {
    [SerializeField] private SpawnerControllerSettings _settings;
-   [SerializeField] private GameObject[] spawners;
+   [SerializeField] private Spawner[] spawners;
    
    private ISpawner[] _spawners;
    private float _fireTimer = 0;
@@ -31,7 +30,7 @@ public class SpawnersController : MonoBehaviour
       _spawners = new ISpawner[spawners.Length];
       for (int i = 0; i < spawners.Length; i++)
       {
-         _spawners[i] = spawners[i].GetComponent<ISpawner>();
+         _spawners[i] = (ISpawner)spawners[i];
       }
    }
 

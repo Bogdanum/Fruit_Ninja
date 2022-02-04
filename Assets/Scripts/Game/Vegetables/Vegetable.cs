@@ -51,7 +51,7 @@ public class Vegetable : MonoBehaviour
     
     private bool OutOfBounds()
     {
-        return transform.position.y < -CameraBorders.Instance.Border;
+        return transform.position.y < GameZone.Instance.BottomLine * 1.5f;
     }
 
     private void GravityMotion()
