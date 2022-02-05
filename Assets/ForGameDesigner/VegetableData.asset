@@ -17,6 +17,7 @@ MonoBehaviour:
     sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     leftHalf: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     rightHalf: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    splash: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     defaultScale: {x: 10, y: 10}
     gravity: 1.6
     radius: 1
@@ -30,6 +31,7 @@ MonoBehaviour:
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     leftHalf: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     rightHalf: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    splash: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     defaultScale: {x: 10, y: 10}
     gravity: 1.6
     radius: 1

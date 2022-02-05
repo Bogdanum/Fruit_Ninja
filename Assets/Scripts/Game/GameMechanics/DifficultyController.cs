@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class DifficultyController : MonoBehaviour
 {
-    [SerializeField, Range(1, 100)] 
-    private float timeToIncreaseDifficulty;
+    [SerializeField] private DifficultySettings settings;
 
     private float _timer = 0;
     private void Update()
     {
         _timer += Time.deltaTime;
 
-        if (_timer > timeToIncreaseDifficulty)
+        if (_timer > settings.timeToIncreaseDifficulty)
         {
             _timer = 0;
             GameplayEvents.SendIncreasingComplexityEvent();

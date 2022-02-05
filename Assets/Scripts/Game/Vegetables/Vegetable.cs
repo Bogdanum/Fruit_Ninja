@@ -79,6 +79,7 @@ public class Vegetable : MonoBehaviour
                 if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Vegetable)
                 {
                     SpawnAndInitHulves();
+                    SpawnSplash();
                 }
                 VegetablePool.Instance.ReturnToPool(this);
             }
@@ -89,6 +90,13 @@ public class Vegetable : MonoBehaviour
     {
        var leftHalf = SpawnHalf(_properties.leftHalf,-_properties.lobuleSpeed);
        var rightHalf = SpawnHalf(_properties.rightHalf,_properties.lobuleSpeed);
+    }
+    
+    private void SpawnSplash()
+    {
+        var splash = SplashPool.Instance.Get();
+        splash.transform.position = transform.position;
+        splash.Init(_properties.splash);
     }
 
     private VegetableHalf SpawnHalf(Sprite sprite ,float lobuleSpeed)

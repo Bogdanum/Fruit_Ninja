@@ -10,6 +10,7 @@ public class VegetableData : ScriptableObject
         public Sprite sprite;
         public Sprite leftHalf;
         public Sprite rightHalf;
+        public Sprite splash;
         public Vector2 defaultScale;
         public float gravity;
         public float radius;
