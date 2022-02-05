@@ -3,30 +3,39 @@ using UnityEngine;
 public class Vegetable : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PhysicsBody physicsBody;
     public bool Active { get; private set; }
 
     private VegetableData.VegetableProperties _properties;
-    private float _speed;
-    private float _rotationSpeed;
-    private float _verticalVelocity;
+    private Vector2 _mousePosition;
+    private Vector2 _defaultScale;
     private float _minRotationSpeed;
     private float _maxRotationSpeed;
+
+    private const float DeathlineOffset = 1.5f;
 
     public void Init(VegetableData.VegetableProperties properties)
     {
         _properties = properties;
         spriteRenderer.sprite = properties.sprite;
+        _defaultScale = properties.defaultScale;
         _minRotationSpeed = properties.minRotationSpeed;
         _maxRotationSpeed = properties.maxRotationSpeed;
+        InputEvents.MousePosition.AddListener(SetMousePosition);
+    }
+
+    private void SetMousePosition(Vector3 position)
+    {
+        _mousePosition = position;
     }
     
     public void Launch(float verticalVelocity, float speed, Vector3 startPosition)
     {
         Active = true;
-        _verticalVelocity = verticalVelocity;
-        _speed = speed;
-        _rotationSpeed = RandomRotationSpeedAndDirection();
+        float rotationSpeed = RandomRotationSpeedAndDirection();
         transform.position = startPosition;
+        transform.localScale = _defaultScale;
+        physicsBody.Init(_properties.gravity, verticalVelocity, speed, rotationSpeed);
     }
 
     private float RandomRotationSpeedAndDirection()
@@ -34,6 +43,11 @@ public class Vegetable : MonoBehaviour
         float rotationSpeed = Random.Range(_minRotationSpeed, _maxRotationSpeed);
         int direction = Random.Range(0, 3);
         return direction > 1 ? rotationSpeed : -rotationSpeed;
+    }
+
+    public float GetRadius()
+    {
+        return _properties.radius;
     }
 
     private void Update()
@@ -46,20 +60,48 @@ public class Vegetable : MonoBehaviour
             Active = false;
             VegetablePool.Instance.ReturnToPool(this);
         }
-        GravityMotion();
+        CheckCut();
     }
-    
+
     private bool OutOfBounds()
     {
-        return transform.position.y < GameZone.Instance.BottomLine * 1.5f;
+        return transform.position.y < GameZone.Instance.BottomLine * DeathlineOffset;
     }
 
-    private void GravityMotion()
+    private void CheckCut()
     {
-        _verticalVelocity -= _properties.gravity * Time.deltaTime;
-        transform.position += new Vector3(_speed, _verticalVelocity, 0) * Time.deltaTime;
-        
-        transform.Rotate(new Vector3(0, 0, _rotationSpeed) * Time.deltaTime);
+        if (Blade.IsSwipeCut)
+        {
+            float distance = Vector2.Distance(transform.position, _mousePosition);
+
+            if (distance < _properties.radius)
+            {
+                if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Vegetable)
+                {
+                    SpawnAndInitHulves();
+                }
+                VegetablePool.Instance.ReturnToPool(this);
+            }
+        }
     }
 
+    private void SpawnAndInitHulves()
+    {
+       var leftHalf = SpawnHalf(_properties.leftHalf,-_properties.lobuleSpeed);
+       var rightHalf = SpawnHalf(_properties.rightHalf,_properties.lobuleSpeed);
+    }
+
+    private VegetableHalf SpawnHalf(Sprite sprite ,float lobuleSpeed)
+    {
+        var half = PoolOfHalves.Instance.Get();
+        half.transform.localScale = _defaultScale;
+        float gravity = _properties.gravity;
+        float verticalVelocity = physicsBody._verticalVelocity;
+        float speed = physicsBody._speed;
+        float rotationSpeed = physicsBody._rotationSpeed;
+        half.Init(sprite, gravity, verticalVelocity, speed, rotationSpeed, lobuleSpeed);
+        half.transform.position = transform.position;
+        half.gameObject.SetActive(true);
+        return half;
+    }
 }

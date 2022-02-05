@@ -8,8 +8,13 @@ public class VegetableData : ScriptableObject
     {
         public string name;
         public Sprite sprite;
+        public Sprite leftHalf;
+        public Sprite rightHalf;
+        public Vector2 defaultScale;
         public float gravity;
+        public float radius;
         [Range(4, 6)] public float speed;
+        [Range(1, 5)] public float lobuleSpeed;
         [Range(1, 20)] public float minRotationSpeed;
         [Range(20, 180)] public float maxRotationSpeed;
         [Range(0, 100)] public float percent;

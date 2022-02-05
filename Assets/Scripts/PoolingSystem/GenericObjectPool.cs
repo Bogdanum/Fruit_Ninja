@@ -29,7 +29,7 @@ public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
     {
         for (int i = 0; i < count; i++)
         {
-            var newObject = GameObject.Instantiate(prefab);
+            var newObject = GameObject.Instantiate(prefab, transform);
             newObject.gameObject.SetActive(false);
             objectsQueue.Enqueue(newObject);
         }
