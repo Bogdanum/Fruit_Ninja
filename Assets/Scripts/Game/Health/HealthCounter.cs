@@ -48,11 +48,12 @@ public class HealthCounter : MonoBehaviour
             currentHeartID--;
             return;
         }
+        hearts[0].SetActive(false);
         GameOver();
     }
 
     private void GameOver()
     {
-        SceneController.LoadScene(SceneEnums.Scene.GameScene);
+        GameplayEvents.SendGameOverEvent();
     }
 }
