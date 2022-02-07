@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: VegetableData
   m_EditorClassIdentifier: 
   _vegetableProperties:
-  - name: Square
-    sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    leftHalf: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    rightHalf: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    splash: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    defaultScale: {x: 10, y: 10}
+  - name: Guava
+    sprite: {fileID: -6293552391084325580, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: 5325017651551143923, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightHalf: {fileID: 930097456254945593, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splash: {fileID: 5482441018340050850, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    defaultScale: {x: 1, y: 1}
     gravity: 1.6
     radius: 1
     speed: 5
@@ -28,12 +28,12 @@ MonoBehaviour:
     percent: 50
     pointsForDestruction: 10
     vegetableType: 0
-  - name: Circle
-    sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    leftHalf: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    rightHalf: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    splash: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    defaultScale: {x: 10, y: 10}
+  - name: Coconut
+    sprite: {fileID: 7987406100781202217, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: 3315871332114094744, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightHalf: {fileID: -7956023556263322067, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splash: {fileID: 6015702095551410897, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    defaultScale: {x: 1, y: 1}
     gravity: 1.6
     radius: 1
     speed: 5
@@ -41,5 +41,35 @@ MonoBehaviour:
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
-    pointsForDestruction: 15
+    pointsForDestruction: 10
+    vegetableType: 0
+  - name: Feijoa
+    sprite: {fileID: 361834087558765331, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: 2404161308526564221, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightHalf: {fileID: -8333523261860205761, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splash: {fileID: -4700812662300453564, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    defaultScale: {x: 1, y: 1}
+    gravity: 1.6
+    radius: 1
+    speed: 5
+    lobuleSpeed: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 50
+    pointsForDestruction: 10
+    vegetableType: 0
+  - name: Pomelo
+    sprite: {fileID: 6824485124193487074, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: -3102792882781756944, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightHalf: {fileID: -3538306632821447154, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splash: {fileID: 8871794225015871039, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    defaultScale: {x: 1, y: 1}
+    gravity: 1.6
+    radius: 1
+    speed: 5
+    lobuleSpeed: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 50
+    pointsForDestruction: 10
     vegetableType: 0

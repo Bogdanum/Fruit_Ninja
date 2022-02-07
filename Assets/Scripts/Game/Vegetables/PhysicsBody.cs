@@ -30,7 +30,7 @@ public class PhysicsBody : MonoBehaviour
         _verticalVelocity -= _gravity * Time.deltaTime;
         transform.position += new Vector3(_speed, _verticalVelocity, 0) * Time.deltaTime;
 
-        transform.localScale += new Vector3(_verticalVelocity, _verticalVelocity, 0) * Time.deltaTime * 0.5f;
+        transform.localScale += new Vector3(_verticalVelocity, _verticalVelocity, 0) * Time.deltaTime * 0.08f;
         transform.Rotate(new Vector3(0, 0, _rotationSpeed) * Time.deltaTime);
     }
     
