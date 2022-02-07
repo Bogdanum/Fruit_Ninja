@@ -59,6 +59,10 @@ public class Vegetable : MonoBehaviour
         {
             Active = false;
             VegetablePool.Instance.ReturnToPool(this);
+            if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Vegetable)
+            {
+                GameplayEvents.SendTakingDamageEvent();
+            }
         }
         CheckCut();
     }
@@ -80,6 +84,7 @@ public class Vegetable : MonoBehaviour
                 {
                     SpawnAndInitHulves();
                     SpawnSplash();
+                    GameplayEvents.SendPointsIncreaseEvent(_properties.pointsForDestruction);
                 }
                 VegetablePool.Instance.ReturnToPool(this);
             }

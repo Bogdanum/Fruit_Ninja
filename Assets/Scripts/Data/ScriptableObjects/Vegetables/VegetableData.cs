@@ -19,6 +19,7 @@ public class VegetableData : ScriptableObject
         [Range(1, 20)] public float minRotationSpeed;
         [Range(20, 180)] public float maxRotationSpeed;
         [Range(0, 100)] public float percent;
+        public int pointsForDestruction;
         public VegetableTypeEnums.VegetableType vegetableType;
     }
 

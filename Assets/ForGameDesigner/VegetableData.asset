@@ -26,6 +26,7 @@ MonoBehaviour:
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
+    pointsForDestruction: 10
     vegetableType: 0
   - name: Circle
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -40,4 +41,5 @@ MonoBehaviour:
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
+    pointsForDestruction: 15
     vegetableType: 0
