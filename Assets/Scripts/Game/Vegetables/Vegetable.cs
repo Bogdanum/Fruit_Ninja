@@ -80,16 +80,27 @@ public class Vegetable : MonoBehaviour
 
             if (distance < _properties.radius)
             {
-                if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Vegetable)
-                {
-                    SpawnAndInitHulves();
-                    SpawnSplash();
-                    int points = _properties.pointsForDestruction * ComboManager.Instance.GetMultiplier();
-                    GameplayEvents.SendPointsIncreaseEvent(points);
-                    ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position, points);
-                }
+                PerformEffect();
                 VegetablePool.Instance.ReturnToPool(this);
             }
+        }
+    }
+
+    private void PerformEffect()
+    {
+        if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Vegetable)
+        {
+            SpawnAndInitHulves();
+            SpawnSplash();
+            int points = _properties.pointsForDestruction * ComboManager.Instance.GetMultiplier();
+            GameplayEvents.SendPointsIncreaseEvent(points);
+            ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position, points);
+        }
+        else if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Bomb)
+        {
+            var explosion = ExplosionsPool.Instance.Get();
+            explosion.Init(transform.position);
+            GameplayEvents.SendTakingDamageEvent();
         }
     }
 
@@ -110,11 +121,13 @@ public class Vegetable : MonoBehaviour
     {
         var half = PoolOfHalves.Instance.Get();
         half.transform.localScale = transform.localScale;
+        
         float gravity = _properties.gravity;
         float verticalVelocity = physicsBody._verticalVelocity;
         float speed = physicsBody._speed;
         float rotationSpeed = physicsBody._rotationSpeed;
         half.Init(sprite, gravity, verticalVelocity, speed, rotationSpeed, lobuleSpeed);
+        
         half.transform.position = transform.position;
         half.gameObject.SetActive(true);
         return half;
