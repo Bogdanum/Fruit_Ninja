@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ComboSettings
   m_EditorClassIdentifier: 
   maxMultiplier: 5
-  minDestroyInterval: 0.001
+  minDestroyInterval: 0.1

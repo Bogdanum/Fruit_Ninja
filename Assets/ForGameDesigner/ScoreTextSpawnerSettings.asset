@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc49c699465f456997a0a29558abeed, type: 3}
   m_Name: ScoreTextSpawnerSettings
   m_EditorClassIdentifier: 
-  minAngle: -20
+  minAngle: 25
   lifeTime: 1.5
