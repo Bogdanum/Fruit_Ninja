@@ -107,7 +107,7 @@ public class Vegetable : MonoBehaviour
     private VegetableHalf SpawnHalf(Sprite sprite ,float lobuleSpeed)
     {
         var half = PoolOfHalves.Instance.Get();
-        half.transform.localScale = _defaultScale;
+        half.transform.localScale = transform.localScale;
         float gravity = _properties.gravity;
         float verticalVelocity = physicsBody._verticalVelocity;
         float speed = physicsBody._speed;
