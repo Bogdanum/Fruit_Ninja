@@ -85,6 +85,7 @@ public class Vegetable : MonoBehaviour
                     SpawnAndInitHulves();
                     SpawnSplash();
                     GameplayEvents.SendPointsIncreaseEvent(_properties.pointsForDestruction);
+                    ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position, _properties.pointsForDestruction);
                 }
                 VegetablePool.Instance.ReturnToPool(this);
             }
