@@ -1,4 +1,6 @@
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ScoreTextSpawner : Singleton<ScoreTextSpawner>
 {
@@ -8,7 +10,8 @@ public class ScoreTextSpawner : Singleton<ScoreTextSpawner>
     {
         var pointsObj = PointsForCuttingPool.Instance.Get();
         pointsObj.transform.position = position;
-        int angle = Random.Range(settings.minAngle, -settings.minAngle);
+        pointsObj.transform.rotation = Quaternion.identity;
+        int angle = Random.Range(-settings.minAngle, settings.minAngle);
         pointsObj.gameObject.SetActive(true);
         pointsObj.Init(points, angle, settings.lifeTime);
     }
