@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 4
   maxHealth: 5
+  durationOfAppearance: 0.5

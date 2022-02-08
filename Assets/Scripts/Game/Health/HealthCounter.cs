@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthCounter : MonoBehaviour
 {
-    [SerializeField] private GameObject[] hearts;
+    [SerializeField] private Heart[] hearts;
     [SerializeField] private HealthCounterSettings settings;
     private int initialHearts;
     private int maxHearts;
@@ -26,7 +26,7 @@ public class HealthCounter : MonoBehaviour
     {
        for (int i = 0; i < initialHearts; i++)
        {
-           hearts[i].SetActive(true);
+           hearts[i].Show(settings.durationOfAppearance);
        }
        currentHeartID = initialHearts - 1;
     }
@@ -36,7 +36,7 @@ public class HealthCounter : MonoBehaviour
         if (currentHeartID != maxHearts)
         {
             currentHeartID++;
-            hearts[currentHeartID].SetActive(true);
+            hearts[currentHeartID].Show(settings.durationOfAppearance);
         }
     }
 
@@ -44,11 +44,11 @@ public class HealthCounter : MonoBehaviour
     {
         if (currentHeartID > 0)
         {
-            hearts[currentHeartID].SetActive(false);
+            hearts[currentHeartID].Hide(settings.durationOfAppearance);
             currentHeartID--;
             return;
         }
-        hearts[0].SetActive(false);
+        hearts[0].Hide(settings.durationOfAppearance);
         GameOver();
     }
 

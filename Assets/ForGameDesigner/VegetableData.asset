@@ -73,3 +73,18 @@ MonoBehaviour:
     percent: 50
     pointsForDestruction: 10
     vegetableType: 0
+  - name: Bomb
+    sprite: {fileID: -6290262730154795570, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: 0}
+    rightHalf: {fileID: 0}
+    splash: {fileID: 0}
+    defaultScale: {x: 1, y: 1}
+    gravity: 1.6
+    radius: 1
+    speed: 5
+    lobuleSpeed: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 10
+    pointsForDestruction: 0
+    vegetableType: 1
