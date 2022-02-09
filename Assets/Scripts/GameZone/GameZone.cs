@@ -48,6 +48,9 @@ public class GameZone : Singleton<GameZone>
     public Vector3 TopRightCorner => topRightCorner.position;
     public Vector3 BottomRightCorner => bottomRightCorner.position;
 
+
+    public float CameraOrthographicSize => camera.orthographicSize;
+    public float CameraAspect => camera.aspect;
     public float BottomLine => BottomRightCorner.y;
     public float TopLine => TopRightCorner.y;
 

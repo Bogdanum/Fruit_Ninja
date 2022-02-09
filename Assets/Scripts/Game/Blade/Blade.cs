@@ -5,16 +5,23 @@ public class Blade : MonoBehaviour
     [SerializeField] private GameObject trail;
     [SerializeField] private BladeSettings bladeSettings;
     
-    private bool IsCutting = false;
+    private bool isCutting = false;
+    private bool isGameOver = false;
     private Vector2 _prevBladePosition;
     private Vector2 _currentMousePosition;
 
     public static bool IsSwipeCut { get; private set; }
     private void Awake()
     {
+        GameplayEvents.GameOver.AddListener(BlockBlade);
         InputEvents.MouseClickOrTouch.AddListener(StartCutting);
         InputEvents.MouseUp.AddListener(StopCutting);
         InputEvents.MousePosition.AddListener(SetMousePosition);
+    }
+
+    private void BlockBlade()
+    {
+        isGameOver = true;
     }
 
     private void SetMousePosition(Vector3 position)
@@ -24,7 +31,12 @@ public class Blade : MonoBehaviour
     
     private void Update()
     {
-        if (IsCutting)
+        if (isGameOver)
+        {
+            return;
+        }
+        
+        if (isCutting)
         {
             UpdateCut();
         }
@@ -33,14 +45,14 @@ public class Blade : MonoBehaviour
 
     private void StartCutting()
     {
-        IsCutting = true;
+        isCutting = true;
         trail.SetActive(true);
         IsSwipeCut = false;
     }
 
     private void StopCutting()
     {
-        IsCutting = false;
+        isCutting = false;
         trail.SetActive(false);
         IsSwipeCut = false;
     }

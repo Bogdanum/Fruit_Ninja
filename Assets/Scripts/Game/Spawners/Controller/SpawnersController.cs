@@ -4,6 +4,7 @@ public class SpawnersController : MonoBehaviour
 {
    [SerializeField] private SpawnerControllerSettings _settings;
    [SerializeField] private Spawner[] spawners;
+   [SerializeField] private GameZone zone;
    
    private ISpawner[] _spawners;
    private float _fireTimer = 0;
@@ -33,6 +34,7 @@ public class SpawnersController : MonoBehaviour
       for (int i = 0; i < spawners.Length; i++)
       {
          _spawners[i] = (ISpawner)spawners[i];
+         _spawners[i].Init(zone);
       }
    }
 

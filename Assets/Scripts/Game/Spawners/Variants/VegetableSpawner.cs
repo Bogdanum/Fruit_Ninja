@@ -14,11 +14,32 @@ public class VegetableSpawner : Spawner, ISpawner
     private int _minPackOfVegetablesSize;
     private int _maxPackOfVegetablesSize;
     private int _complicationCounter = 0;
+    private GameZone _zone;
     private VegetableData _vegetableData;
     private VegetableData.VegetableProperties _vegetableProperties;
 
     public int SpawnChanceInPercent { get => spawnerSettings.spawnChanceInPercent; }
 
+    public void Init(GameZone zone)
+    {
+        _zone = zone;
+        CorrectPositionX();
+    }
+
+    private void CorrectPositionX()
+    {
+        float newX = transform.position.x * _zone.CameraAspect;
+        transform.position = new Vector3(newX, transform.position.y, 0);
+        float minPosX = minLinePos.localPosition.x * _zone.CameraAspect;
+        float maxPosX = maxLinePos.localPosition.x * _zone.CameraAspect;
+        if (minPosX != 0 && maxPosX != 0)
+        {
+            minLinePos.localPosition = new Vector3(minPosX, minLinePos.localPosition.y, 0);
+            maxLinePos.localPosition = new Vector3(maxPosX, maxLinePos.localPosition.y, 0);
+        }
+
+    }
+    
     private void Awake()
     {
         GetParameters();
@@ -73,7 +94,6 @@ public class VegetableSpawner : Spawner, ISpawner
         center.position = GetRandomLinePosition();
         vegetable.transform.rotation = transform.rotation;
         vegetable.transform.position = center.position;
-        vegetable.transform.SetAsLastSibling();
         vegetable.gameObject.SetActive(true);
     }
 
