@@ -12,6 +12,7 @@ public class VegetableHalf : MonoBehaviour
         float rotationSpeed, float lobuleSpeed)
     {
         renderer.sprite = sprite;
+        renderer.sortingOrder = transform.GetInstanceID();
         cutVegetablePhysics.Init(gravity, verticalVelocity, speed, rotationSpeed);
         lobuleMovement.SetSpeed(lobuleSpeed);
     }

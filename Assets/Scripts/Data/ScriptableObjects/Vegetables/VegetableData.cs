@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "VegetableData", menuName = "ScriptableObjects/VegetableData", order = 1)]
 public class VegetableData : ScriptableObject
@@ -11,7 +12,7 @@ public class VegetableData : ScriptableObject
         public Sprite leftHalf;
         public Sprite rightHalf;
         public Sprite splash;
-        public Vector2 defaultScale;
+        public Vector2 scale;
         public float gravity;
         public float radius;
         [Range(4, 6)] public float speed;

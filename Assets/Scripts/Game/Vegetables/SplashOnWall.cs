@@ -10,6 +10,8 @@ public class SplashOnWall : MonoBehaviour
     public void Init(Sprite splashSprite)
     {
         spriteRenderer.sprite = splashSprite;
+        spriteRenderer.sortingOrder = transform.GetInstanceID();
+        transform.localScale = settings.scale;
         gameObject.SetActive(true);
         transform.Rotate(0,0, Random.Range(-45, 45));
         StartCoroutine(SplashLife());

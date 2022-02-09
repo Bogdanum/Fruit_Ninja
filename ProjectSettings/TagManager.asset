@@ -38,15 +38,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: UI
-    uniqueID: 4118063957
+  - name: Background
+    uniqueID: 2682224113
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Blade
-    uniqueID: 83695991
+  - name: SplashOnWall
+    uniqueID: 3167512831
+    locked: 0
+  - name: FruitHalf
+    uniqueID: 570543361
+    locked: 0
+  - name: Fruit
+    uniqueID: 2605496659
+    locked: 0
+  - name: Bomb
+    uniqueID: 53210105
     locked: 0
   - name: Effects
     uniqueID: 2328643601
+    locked: 0
+  - name: UI
+    uniqueID: 4118063957
+    locked: 0
+  - name: Blade
+    uniqueID: 83695991
     locked: 0

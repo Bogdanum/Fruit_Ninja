@@ -73,6 +73,7 @@ public class VegetableSpawner : Spawner, ISpawner
         center.position = GetRandomLinePosition();
         vegetable.transform.rotation = transform.rotation;
         vegetable.transform.position = center.position;
+        vegetable.transform.SetAsLastSibling();
         vegetable.gameObject.SetActive(true);
     }
 
