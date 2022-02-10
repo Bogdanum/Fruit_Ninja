@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0d55bc50d5147b1a6e125785fabdbb, type: 3}
   m_Name: HealthCounterSettings
   m_EditorClassIdentifier: 
-  initialHealth: 300
+  initialHealth: 480
   maxHealth: 500
   durationOfAppearance: 0.5

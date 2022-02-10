@@ -18,6 +18,7 @@ public class Vegetable : MonoBehaviour
         _properties = properties;
         spriteRenderer.sprite = properties.sprite;
         spriteRenderer.sortingOrder = transform.GetInstanceID();
+        spriteRenderer.sortingLayerName = properties.sortingLayerName;
         _minRotationSpeed = properties.minRotationSpeed;
         _maxRotationSpeed = properties.maxRotationSpeed;
         InputEvents.MousePosition.AddListener(SetMousePosition);
@@ -120,15 +121,8 @@ public class Vegetable : MonoBehaviour
     {
         var half = PoolOfHalves.Instance.Get();
         half.transform.localScale = transform.localScale;
-
-        float gravity = _properties.gravity;
-        float verticalVelocity = physicsBody._verticalVelocity;
-        float speed = physicsBody._speed;
-        float rotationSpeed = physicsBody._rotationSpeed;
-        half.Init(sprite, gravity, verticalVelocity, speed, rotationSpeed, lobuleSpeed);
-        
         half.transform.position = transform.position;
-        half.gameObject.SetActive(true);
+        half.Init(_properties, physicsBody, sprite, lobuleSpeed);
         return half;
     }
 }

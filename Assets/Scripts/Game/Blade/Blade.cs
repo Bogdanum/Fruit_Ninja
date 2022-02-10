@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
-    [SerializeField] private GameObject trail;
+    [SerializeField] private GameObject trailPrefab;
     [SerializeField] private BladeSettings bladeSettings;
-    
+
+    private GameObject currentTrail;
     private bool isCutting = false;
     private bool isGameOver = false;
     private Vector2 _prevBladePosition;
@@ -40,27 +41,30 @@ public class Blade : MonoBehaviour
         {
             UpdateCut();
         }
-        transform.position = _currentMousePosition;
     }
 
     private void StartCutting()
     {
         isCutting = true;
-        trail.SetActive(true);
+        _prevBladePosition = _currentMousePosition;
         IsSwipeCut = false;
+        currentTrail = Instantiate(trailPrefab, transform);
+        currentTrail.SetActive(false);
     }
 
     private void StopCutting()
     {
         isCutting = false;
-        trail.SetActive(false);
         IsSwipeCut = false;
+        currentTrail.transform.SetParent(null);
+        Destroy(currentTrail, 0.3f);
     }
     
     private void UpdateCut()
     {
+        currentTrail.SetActive(true);
+        transform.position = _currentMousePosition;
         float velocity = (_currentMousePosition - _prevBladePosition).magnitude * Time.deltaTime;
-
         IsSwipeCut = velocity > bladeSettings.minCuttingVelocity ? true : false;
         _prevBladePosition = _currentMousePosition;
     }

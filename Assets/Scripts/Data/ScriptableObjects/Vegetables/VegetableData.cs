@@ -8,6 +8,7 @@ public class VegetableData : ScriptableObject
     public struct VegetableProperties
     {
         public string name;
+        public string sortingLayerName;
         public Sprite sprite;
         public Sprite leftHalf;
         public Sprite rightHalf;

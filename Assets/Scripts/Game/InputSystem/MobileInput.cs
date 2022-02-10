@@ -7,6 +7,8 @@ public class MobileInput : MonoBehaviour
 
     private void ReadTouches()
     {
+        SendTouchPosition();
+        
         if (Input.GetMouseButtonDown(0))
         {
             InputEvents.SendClickEvent();
@@ -16,12 +18,15 @@ public class MobileInput : MonoBehaviour
         {
             InputEvents.SendMouseUpEvent();
         }
-        SendTouchPosition();
     }
 
     private void SendTouchPosition()
     {
+#if UNITY_EDITOR
         Vector3 touchPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+#else
+        Vector3 touchPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+#endif
         InputEvents.SendMousePosition(touchPosition);
     }
 }

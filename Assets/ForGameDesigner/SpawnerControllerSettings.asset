@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialRefireRate: 5
   minRefireRate: 3
-  refireRateReductionStep: 0.01
+  refireRateReductionStep: 0.03

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81c1c69516745e3b7e9951d09b1165, type: 3}
   m_Name: BladeSettings
   m_EditorClassIdentifier: 
-  minCuttingVelocity: 0.001
+  minCuttingVelocity: 0.0015

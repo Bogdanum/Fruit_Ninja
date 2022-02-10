@@ -7,15 +7,15 @@ public class VegetableHalf : MonoBehaviour
     [SerializeField] private LobuleMovement lobuleMovement;
 
     private const float DeathlineOffset = 1.5f;
-
-    public void Init(Sprite sprite, float gravity, float verticalVelocity, float speed,
-        float rotationSpeed, float lobuleSpeed)
-    {
-        renderer.sprite = sprite;
-        renderer.sortingOrder = transform.GetInstanceID();
-        cutVegetablePhysics.Init(gravity, verticalVelocity, speed, rotationSpeed);
-        lobuleMovement.SetSpeed(lobuleSpeed);
-    }
+    
+    public void Init(VegetableData.VegetableProperties properties, PhysicsBody physics, Sprite sprite, float lobuleSpeed)
+   {
+       renderer.sprite = sprite;
+       renderer.sortingOrder = transform.GetInstanceID();
+       gameObject.SetActive(true);
+       cutVegetablePhysics.Init(properties.gravity, physics._verticalVelocity, physics._speed, physics._rotationSpeed);
+       lobuleMovement.SetSpeed(lobuleSpeed);
+   }
 
     private void Update()
     {
