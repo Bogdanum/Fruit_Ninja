@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIMediator : MonoBehaviour
+public class UIMediator : Singleton<UIMediator>
 {
     [SerializeField] private UISettings settings;
     [SerializeField] private FadingPanel gameOverPopupPanel;

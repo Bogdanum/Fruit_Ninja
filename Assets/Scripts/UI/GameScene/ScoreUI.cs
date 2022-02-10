@@ -29,7 +29,7 @@ public class ScoreUI : MonoBehaviour
     private void DoScale(Transform transform)
     {
         var sequence = DOTween.Sequence();
-        Tween tween = transform.DOScaleY(0.8f, 0.2f);
+        Tween tween = transform.DOScale(new Vector3(0.85f, 0.85f, 1), 0.1f);
         sequence.Append(tween);
         sequence.OnComplete(() => transform.localScale = Vector3.one);
     }

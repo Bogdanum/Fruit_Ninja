@@ -94,7 +94,7 @@ public class Vegetable : MonoBehaviour
             SpawnSplash();
             int points = _properties.pointsForDestruction * ComboManager.Instance.GetMultiplier();
             GameplayEvents.SendPointsIncreaseEvent(points);
-            ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position, points);
+            ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position,_properties.pointsForDestruction, points);
         }
         else if (_properties.vegetableType == VegetableTypeEnums.VegetableType.Bomb)
         {
