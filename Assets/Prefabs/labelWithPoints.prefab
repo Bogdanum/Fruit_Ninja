@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsForCutting: {fileID: 4695774997887046067}
+  scaler: {fileID: 0}
   combo: {fileID: 0}
 --- !u!1 &9205006402003724613
 GameObject:
@@ -197,6 +198,7 @@ GameObject:
   - component: {fileID: 7241660245313367211}
   - component: {fileID: 7830320389905380917}
   - component: {fileID: 2779737730668503887}
+  - component: {fileID: 660570129417344693}
   m_Layer: 0
   m_Name: labelWithPoints
   m_TagString: Untagged
@@ -370,4 +372,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsForCutting: {fileID: 7830320389905380917}
+  scaler: {fileID: 660570129417344693}
   combo: {fileID: 1902410811312920740}
+--- !u!114 &660570129417344693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205006402003724613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98760fe6fd6524bcb97cf29565116949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -7,9 +6,9 @@ public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 {
     [SerializeField] private Vector3 onClickScale;
     [SerializeField] private float animationTime;
+    [SerializeField] private TweenScaler scaler;
     [SerializeField] private UnityEvent onClickEvent;
     private bool pointerEnter = false;
-
 
     public void OnPointerDown(PointerEventData eventData) => ScaleDown();
 
@@ -21,13 +20,13 @@ public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void ScaleDown()
     {
-        Tween scaleTween = transform.DOScale(onClickScale, animationTime);
-        scaleTween.OnComplete(ExecuteClickEvent);
+        scaler.DoScale(onClickScale, animationTime);
     }
 
     private void ScaleUP()
     {
-        transform.DOScale(Vector3.one, animationTime);
+        ExecuteClickEvent();
+        scaler.DoScale(Vector3.one, animationTime);
     }
 
     private void ExecuteClickEvent()

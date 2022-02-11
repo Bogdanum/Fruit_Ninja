@@ -1,10 +1,9 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class Heart : MonoBehaviour
 {
-    private Tween scaleTween;
-    
+    [SerializeField] private TweenScaler scaler;
+
     public void Show(float duration)
     {
         gameObject.SetActive(true);
@@ -14,25 +13,11 @@ public class Heart : MonoBehaviour
 
     private void SmoothAppearance(float duration)
     {
-        CheckTween();
-        scaleTween = transform.DOScale(Vector3.one, duration);
+        scaler.DoScale(Vector3.one, duration);
     }
 
     public void Hide(float duration)
     {
-        CheckTween();
-        scaleTween = transform.DOScale(Vector3.zero, duration);
-        scaleTween.onComplete += () =>
-        {
-            gameObject.SetActive(false);
-        };
-    }
-
-    private void CheckTween()
-    {
-        if (scaleTween != null)
-        {
-            scaleTween.Kill(false);
-        }
+        scaler.DoScale(Vector3.zero, duration, () => gameObject.SetActive(false));
     }
 }

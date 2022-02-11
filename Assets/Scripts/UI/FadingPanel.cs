@@ -6,6 +6,11 @@ public class FadingPanel : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     private Tween fadeTween;
 
+    private void OnDestroy()
+    {
+        CheckTween();
+    }
+
     public void FadeIn(float duration)
     {
         Fade(1, duration, () =>
@@ -26,11 +31,16 @@ public class FadingPanel : MonoBehaviour
     
     private void Fade(float endValue, float duration, TweenCallback onEnd)
     {
+        CheckTween();
+        fadeTween = canvasGroup.DOFade(endValue, duration);
+        fadeTween.onComplete += onEnd;
+    }
+
+    private void CheckTween()
+    {
         if (fadeTween != null)
         {
             fadeTween.Kill(false);
         }
-        fadeTween = canvasGroup.DOFade(endValue, duration);
-        fadeTween.onComplete += onEnd;
     }
 }

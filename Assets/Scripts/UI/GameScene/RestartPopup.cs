@@ -19,7 +19,7 @@ public class RestartPopup : MonoBehaviour
 
     public void Restart()
     {
-        SceneLoader.LoadScene(SceneEnums.Scene.GameScene);
+        SceneLoader.LoadSceneAsync(SceneEnums.Scene.GameScene);
     }
 
     public void GoHome()

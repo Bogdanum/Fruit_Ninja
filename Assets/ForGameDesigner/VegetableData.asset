@@ -20,9 +20,9 @@ MonoBehaviour:
     rightHalf: {fileID: 930097456254945593, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     splash: {fileID: 5482441018340050850, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 4
+    gravity: 6
     radius: 1
-    speed: 9
+    speed: 10
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -36,9 +36,9 @@ MonoBehaviour:
     rightHalf: {fileID: -7956023556263322067, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     splash: {fileID: 6015702095551410897, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 4
+    gravity: 6
     radius: 1
-    speed: 9
+    speed: 10
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -52,9 +52,9 @@ MonoBehaviour:
     rightHalf: {fileID: -8333523261860205761, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     splash: {fileID: -4700812662300453564, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 4
+    gravity: 6
     radius: 1
-    speed: 9
+    speed: 10
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -68,9 +68,9 @@ MonoBehaviour:
     rightHalf: {fileID: -3538306632821447154, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     splash: {fileID: 8871794225015871039, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 4
+    gravity: 6
     radius: 1
-    speed: 9
+    speed: 10
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -84,9 +84,9 @@ MonoBehaviour:
     rightHalf: {fileID: 0}
     splash: {fileID: 0}
     scale: {x: 1, y: 1}
-    gravity: 4
+    gravity: 6
     radius: 1
-    speed: 9
+    speed: 10
     lobuleSpeed: 1
     minRotationSpeed: 20
     maxRotationSpeed: 150

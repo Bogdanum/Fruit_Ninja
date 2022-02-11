@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using DG.Tweening;
 
 public class PointsForCutting : MonoBehaviour
 {
     [SerializeField] private TMP_Text pointsForCutting;
+    [SerializeField] private TweenScaler scaler;
     [SerializeField] private GameObject combo;
-    private Tween scaleTween;
 
     public void Init(int points, int angle, float lifeTime, bool isCombo)
     {
@@ -27,14 +26,10 @@ public class PointsForCutting : MonoBehaviour
 
     private void DoScale(float time)
     {
-        if (scaleTween != null)
+        scaler.DoScale(Vector3.one, time/2, () =>
         {
-            scaleTween.Kill(false);
-        }
-        scaleTween = transform.DOScale(new Vector3(1, 1, 1), time/2);
-        scaleTween.onComplete = () =>
-        {
-            transform.DOScale(new Vector3(0, 0, 0), time/2);
-        };
+            scaler.DoScale(Vector3.zero, time/2);
+        });
     }
+
 }
