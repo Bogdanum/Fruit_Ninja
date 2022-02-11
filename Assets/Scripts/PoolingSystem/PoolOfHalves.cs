@@ -1,4 +1,4 @@
-public class PoolOfHalves : GenericObjectPool<VegetableHalf>
+public class PoolOfHalves : GenericObjectPool<FlyingUnitHalf>
 {
     
 }

@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "VegetableData", menuName = "ScriptableObjects/VegetableData", order = 1)]
-public class VegetableData : ScriptableObject
+[CreateAssetMenu(fileName = "FlyingUnitData", menuName = "ScriptableObjects/FlyingUnitData", order = 1)]
+public class FlyingUnitData : ScriptableObject
 {
     [System.Serializable]
-    public struct VegetableProperties
+    public struct FlyingUnitProperties
     {
         public string name;
         public string sortingLayerName;
@@ -22,32 +21,32 @@ public class VegetableData : ScriptableObject
         [Range(20, 180)] public float maxRotationSpeed;
         [Range(0, 100)] public float percent;
         public int pointsForDestruction;
-        public VegetableTypeEnums.VegetableType vegetableType;
+        public FlyingUnitEnums.FlyingUnitType flyingUnitType;
     }
 
-    [SerializeField] private VegetableProperties[] _vegetableProperties;
+    [SerializeField] private FlyingUnitProperties[] flyingUnitProperties;
     
-    public VegetableProperties GetRandomVegetableProperties()
+    public FlyingUnitProperties GetRandomVegetableProperties()
     {
         float total = 0;
         float current = 0;
 
-        for (int i = 0; i < _vegetableProperties.Length; i++)
+        for (int i = 0; i < flyingUnitProperties.Length; i++)
         {
-            total += _vegetableProperties[i].percent;
+            total += flyingUnitProperties[i].percent;
         }
 
         float randomPercent = Random.Range(0, total);
 
-        for (int i = 0; i < _vegetableProperties.Length; i++)
+        for (int i = 0; i < flyingUnitProperties.Length; i++)
         {
-            current += _vegetableProperties[i].percent;
+            current += flyingUnitProperties[i].percent;
 
             if (current >= randomPercent)
             {
-                return _vegetableProperties[i];
+                return flyingUnitProperties[i];
             }
         }
-        return _vegetableProperties[Random.Range(0, _vegetableProperties.Length)];
+        return flyingUnitProperties[Random.Range(0, flyingUnitProperties.Length)];
     }
 }

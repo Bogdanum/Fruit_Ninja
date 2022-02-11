@@ -7,10 +7,11 @@ public class SplashOnWall : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
-    public void Init(Sprite splashSprite)
+    public void Init(Sprite splashSprite, Vector3 position)
     {
         spriteRenderer.sprite = splashSprite;
         spriteRenderer.sortingOrder = transform.GetInstanceID();
+        transform.position = position;
         transform.localScale = settings.scale;
         gameObject.SetActive(true);
         transform.Rotate(0,0, Random.Range(-45, 45));

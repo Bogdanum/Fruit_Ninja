@@ -1,6 +1,6 @@
-public static class VegetableTypeEnums
+public static class FlyingUnitEnums
 {
-    public enum VegetableType
+    public enum FlyingUnitType
     {
         Vegetable,
         Bomb,

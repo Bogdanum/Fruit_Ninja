@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class VegetableSpawner : Spawner, ISpawner
+public class FlyingUnitSpawner : Spawner
 {
     [SerializeField] private Transform minLinePos;
     [SerializeField] private Transform maxLinePos;
@@ -15,12 +15,12 @@ public class VegetableSpawner : Spawner, ISpawner
     private int _maxPackOfVegetablesSize;
     private int _complicationCounter = 0;
     private GameZone _zone;
-    private VegetableData _vegetableData;
-    private VegetableData.VegetableProperties _vegetableProperties;
+    private FlyingUnitData _vegetableData;
+    private FlyingUnitData.FlyingUnitProperties _vegetableProperties;
 
-    public int SpawnChanceInPercent { get => spawnerSettings.spawnChanceInPercent; }
-
-    public void Init(GameZone zone)
+    public override int SpawnChanceInPercent { get => spawnerSettings.spawnChanceInPercent; }
+    
+    public override void Init(GameZone zone)
     {
         _zone = zone;
         CorrectPositionX();
@@ -37,7 +37,6 @@ public class VegetableSpawner : Spawner, ISpawner
             minLinePos.localPosition = new Vector3(minPosX, minLinePos.localPosition.y, 0);
             maxLinePos.localPosition = new Vector3(maxPosX, maxLinePos.localPosition.y, 0);
         }
-
     }
     
     private void Awake()
@@ -69,7 +68,7 @@ public class VegetableSpawner : Spawner, ISpawner
         }
     }
 
-    public void Launch()
+    public override void Launch()
     {
         int packSize = Random.Range(_minPackOfVegetablesSize, _maxPackOfVegetablesSize);
         StartCoroutine(LaunchRoutine(packSize));
@@ -81,13 +80,13 @@ public class VegetableSpawner : Spawner, ISpawner
         {
             yield return new WaitForSeconds(spawnerSettings.delayBetweenShotsInPack);
             
-            var vegetable = VegetablePool.Instance.Get();
+            var vegetable = FlyingUnitPool.Instance.Get();
             InitVegetable(vegetable);
             LaunchVegetable(vegetable);
         }
     }
 
-    private void InitVegetable(Vegetable vegetable)
+    private void InitVegetable(FlyingUnit vegetable)
     {
         _vegetableProperties = _vegetableData.GetRandomVegetableProperties();
         vegetable.Init(_vegetableProperties);
@@ -104,7 +103,7 @@ public class VegetableSpawner : Spawner, ISpawner
         return new Vector3(x, y, 0);
     }
     
-    private void LaunchVegetable(Vegetable vegetable)
+    private void LaunchVegetable(FlyingUnit vegetable)
     {
         Vector3 flightDirection = GetFlightDirection().normalized * _vegetableProperties.speed;
         float verticalVelocity = flightDirection.y;

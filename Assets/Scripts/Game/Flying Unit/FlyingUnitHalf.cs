@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VegetableHalf : MonoBehaviour
+public class FlyingUnitHalf : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private PhysicsBody cutVegetablePhysics;
@@ -8,10 +8,12 @@ public class VegetableHalf : MonoBehaviour
 
     private const float DeathlineOffset = 1.5f;
     
-    public void Init(VegetableData.VegetableProperties properties, PhysicsBody physics, Sprite sprite, float lobuleSpeed)
+    public void Init(FlyingUnitData.FlyingUnitProperties properties, PhysicsBody physics, Sprite sprite, Vector3 startPosition, Vector3 localScale, float lobuleSpeed)
    {
        renderer.sprite = sprite;
        renderer.sortingOrder = transform.GetInstanceID();
+       transform.localScale = localScale;
+       transform.position = startPosition;
        gameObject.SetActive(true);
        cutVegetablePhysics.Init(properties.gravity, physics._verticalVelocity, physics._speed, physics._rotationSpeed);
        lobuleMovement.SetSpeed(lobuleSpeed);

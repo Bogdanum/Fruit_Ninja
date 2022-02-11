@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f92fc1446b58413ab87aafb1b1005b2, type: 3}
-  m_Name: VegetableData
+  m_Name: FlyingUnitData
   m_EditorClassIdentifier: 
-  _vegetableProperties:
+  flyingUnitProperties:
   - name: Guava
     sortingLayerName: Fruit
     sprite: {fileID: -6293552391084325580, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
@@ -28,23 +28,7 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
-    vegetableType: 0
-  - name: Coconut
-    sortingLayerName: Fruit
-    sprite: {fileID: 7987406100781202217, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    leftHalf: {fileID: 3315871332114094744, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    rightHalf: {fileID: -7956023556263322067, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    splash: {fileID: 6015702095551410897, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    scale: {x: 1, y: 1}
-    gravity: 6
-    radius: 1
-    speed: 10
-    lobuleSpeed: 1.5
-    minRotationSpeed: 20
-    maxRotationSpeed: 150
-    percent: 50
-    pointsForDestruction: 10
-    vegetableType: 0
+    flyingUnitType: 0
   - name: Feijoa
     sortingLayerName: Fruit
     sprite: {fileID: 361834087558765331, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
@@ -60,7 +44,7 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
-    vegetableType: 0
+    flyingUnitType: 0
   - name: Pomelo
     sortingLayerName: Fruit
     sprite: {fileID: 6824485124193487074, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
@@ -76,7 +60,23 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
-    vegetableType: 0
+    flyingUnitType: 0
+  - name: Coconut
+    sortingLayerName: Fruit
+    sprite: {fileID: 7987406100781202217, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftHalf: {fileID: 3315871332114094744, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightHalf: {fileID: -7956023556263322067, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splash: {fileID: 6015702095551410897, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    scale: {x: 1, y: 1}
+    gravity: 6
+    radius: 1
+    speed: 10
+    lobuleSpeed: 1.5
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 50
+    pointsForDestruction: 10
+    flyingUnitType: 0
   - name: Bomb
     sortingLayerName: Bomb
     sprite: {fileID: -6290262730154795570, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
@@ -92,4 +92,4 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 10
     pointsForDestruction: 0
-    vegetableType: 1
+    flyingUnitType: 1
