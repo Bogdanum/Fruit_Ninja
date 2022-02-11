@@ -4,6 +4,11 @@ public class Heart : MonoBehaviour
 {
     [SerializeField] private TweenScaler scaler;
 
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    
     public void Show(float duration)
     {
         gameObject.SetActive(true);

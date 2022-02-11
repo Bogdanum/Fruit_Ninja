@@ -1,12 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthCounter : MonoBehaviour
 {
-    [SerializeField] private Heart heart;
-    [SerializeField] private GridLayoutGroup grid;
+    [SerializeField] private HealthUI healthUI;
     [SerializeField] private HealthCounterSettings settings;
-    private Heart[] hearts;
     private int initialHearts;
     private int maxHearts;
     private int currentHeartID;
@@ -27,52 +24,28 @@ public class HealthCounter : MonoBehaviour
 
     private void Init()
     {
-        hearts = new Heart[maxHearts]; 
-        for (int i = 0; i < maxHearts; i++)
-        {
-           hearts[i] = Instantiate(heart, transform);
-           if (i < initialHearts)
-           {
-               hearts[i].Show(settings.durationOfAppearance);
-           }
-        }
+        healthUI.Init(initialHearts, maxHearts);
         currentHeartID = initialHearts - 1;
-        SetGridSize(initialHearts);
     }
 
     private void AddHeart()
     {
         if (currentHeartID != maxHearts)
         {
-            SetGridSize(currentHeartID);
             currentHeartID++;
-            hearts[currentHeartID].Show(settings.durationOfAppearance);
+            healthUI.AddHeart(currentHeartID, settings.durationOfAppearance);
         }
-    }
-    
-    private void SetGridSize(int visibleHeartsCount)
-    {
-        var gridSizes = PlayerData.HealthGridSizes;
-        foreach (var kv in gridSizes)
-        {
-            if (visibleHeartsCount < kv.Key)
-            {
-                grid.cellSize = new Vector2(gridSizes[kv.Key], gridSizes[kv.Key]);
-                return;
-            }
-        }
-        grid.cellSize = new Vector2(5, 5);
     }
 
     private void RemoveHeart()
     {
         if (currentHeartID > 0)
         {
-            hearts[currentHeartID].Hide(settings.durationOfAppearance);
+            healthUI.RemoveHeart(currentHeartID, settings.durationOfAppearance);
             currentHeartID--;
             return;
         }
-        hearts[0].Hide(settings.durationOfAppearance);
+        healthUI.RemoveHeart(0, settings.durationOfAppearance);
         GameOver();
     }
 

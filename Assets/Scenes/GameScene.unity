@@ -587,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352380004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.833334, y: 5, z: 0}
+  m_LocalPosition: {x: -8.888889, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -662,7 +662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367704215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.833334, y: 5, z: 0}
+  m_LocalPosition: {x: 8.888889, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -1236,7 +1236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579583288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.833334, y: -5, z: 0}
+  m_LocalPosition: {x: -8.888889, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -2468,7 +2468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366648926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.833334, y: -5, z: 0}
+  m_LocalPosition: {x: 8.888889, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -3681,6 +3681,7 @@ GameObject:
   - component: {fileID: 2078678054}
   - component: {fileID: 2078678055}
   - component: {fileID: 2078678056}
+  - component: {fileID: 2078678057}
   m_Layer: 0
   m_Name: HeartsUI
   m_TagString: Untagged
@@ -3743,9 +3744,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fce8ef0a5acd4d83987329966b3dc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthUI: {fileID: 2078678057}
+  settings: {fileID: 11400000, guid: 7944f3ae02ae44ac3a84f421f4af8097, type: 2}
+--- !u!114 &2078678057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078678053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816b46718b573470a97adf8e1aa52706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   heart: {fileID: 7494334211404498208, guid: 23ccf6bb517f94c1d9915043fb7f7c6e, type: 3}
   grid: {fileID: 2078678055}
-  settings: {fileID: 11400000, guid: 7944f3ae02ae44ac3a84f421f4af8097, type: 2}
 --- !u!1 &2096262869
 GameObject:
   m_ObjectHideFlags: 0
