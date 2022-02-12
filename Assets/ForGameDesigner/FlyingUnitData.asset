@@ -28,6 +28,8 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
+    explosionRadius: 0
+    explosionPower: 0
     flyingUnitType: 0
   - name: Feijoa
     sortingLayerName: Fruit
@@ -44,6 +46,8 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
+    explosionRadius: 0
+    explosionPower: 0
     flyingUnitType: 0
   - name: Pomelo
     sortingLayerName: Fruit
@@ -60,6 +64,8 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
+    explosionRadius: 0
+    explosionPower: 0
     flyingUnitType: 0
   - name: Coconut
     sortingLayerName: Fruit
@@ -76,6 +82,8 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 50
     pointsForDestruction: 10
+    explosionRadius: 0
+    explosionPower: 0
     flyingUnitType: 0
   - name: Bomb
     sortingLayerName: Bomb
@@ -92,4 +100,6 @@ MonoBehaviour:
     maxRotationSpeed: 150
     percent: 10
     pointsForDestruction: 0
+    explosionRadius: 5
+    explosionPower: 3
     flyingUnitType: 1

@@ -32,6 +32,7 @@ public class FlyingUnitEffect : MonoBehaviour
      {
           var explosion = ExplosionsPool.Instance.Get();
           explosion.Init(transform.position);
+          GameplayEvents.SendBombExplosionEvent(transform.position, _properties.explosionRadius, _properties.explosionPower);
           GameplayEvents.SendTakingDamageEvent();
      }
      

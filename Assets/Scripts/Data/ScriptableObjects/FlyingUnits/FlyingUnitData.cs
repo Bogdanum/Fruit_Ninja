@@ -21,6 +21,8 @@ public class FlyingUnitData : ScriptableObject
         [Range(20, 180)] public float maxRotationSpeed;
         [Range(0, 100)] public float percent;
         public int pointsForDestruction;
+        public float explosionRadius;
+        public float explosionPower;
         public FlyingUnitEnums.FlyingUnitType flyingUnitType;
     }
 

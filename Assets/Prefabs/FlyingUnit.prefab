@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6987395452820422520}
   - component: {fileID: 7599362830573268746}
   - component: {fileID: 576007991896338763}
+  - component: {fileID: 6924031640904261197}
   - component: {fileID: 7964960493052928941}
   - component: {fileID: 6283736580416214186}
   m_Layer: 0
@@ -111,6 +112,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78cbf2697b6a417388b825e6fefb20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicsBody: {fileID: 7964960493052928941}
+--- !u!114 &6924031640904261197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306282099115401275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019094b65882c425c9f52e3aa96e15fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   physicsBody: {fileID: 7964960493052928941}

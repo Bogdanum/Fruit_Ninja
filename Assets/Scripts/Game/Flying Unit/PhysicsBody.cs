@@ -16,7 +16,13 @@ public class PhysicsBody : MonoBehaviour
         _rotationSpeed = rotationSpeed;
         _active = true;
     }
-    
+
+    public void ChangeVelocity(float newVerticalVelocity, float newSpeed)
+    {
+        _verticalVelocity = newVerticalVelocity;
+        _speed = newSpeed;
+    }
+
     private void Update()
     {
         if (_active)
@@ -32,5 +38,5 @@ public class PhysicsBody : MonoBehaviour
         
         transform.Rotate(new Vector3(0, 0, _rotationSpeed) * Time.deltaTime);
     }
-    
+
 }

@@ -27,6 +27,12 @@ public class HealthUI : MonoBehaviour
         hearts[currentHeartID].Show(durationOfAppearance);
     }
     
+    public void RemoveHeart(int heartIdToRemove, float durationOfAppearance)
+    {
+        hearts[heartIdToRemove].Hide(durationOfAppearance);
+        SetGridSize(heartIdToRemove);
+    }
+    
     private void SetGridSize(int visibleHeartsCount)
     {
         var gridSizes = PlayerData.HealthGridSizes;
@@ -39,10 +45,5 @@ public class HealthUI : MonoBehaviour
             }
         }
         grid.cellSize = new Vector2(5, 5);
-    }
-
-    public void RemoveHeart(int heartIdToRemove, float durationOfAppearance)
-    {
-        hearts[heartIdToRemove].Hide(durationOfAppearance);
     }
 }
