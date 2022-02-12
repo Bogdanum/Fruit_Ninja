@@ -19,6 +19,7 @@ public class SpawnersController : MonoBehaviour
       InitSpawners();
       GameplayEvents.IncreasingComplexity.AddListener(DecreaseRefireRate);
       GameplayEvents.GameOver.AddListener(Stop);
+      GameplayEvents.Restart.AddListener(Restart);
    }
 
    private void Init()
@@ -47,9 +48,12 @@ public class SpawnersController : MonoBehaviour
       _initialrefireRate -= _refireRateReductionStep;
    }
 
-   private void Stop()
+   private void Stop() => active = false;
+
+   private void Restart()
    {
-      active = false;
+      active = true;
+      Init();
    }
 
    private void Update()

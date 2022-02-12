@@ -10,24 +10,24 @@ public class HealthCounter : MonoBehaviour
 
     private void Awake()
     {
-        GetSettings();
         Init();
         GameplayEvents.TakingDamage.AddListener(RemoveHeart);
         GameplayEvents.Healing.AddListener(AddHeart);
+        GameplayEvents.Restart.AddListener(Init);
     }
-
+     private void Init()
+     {
+         GetSettings();
+         healthUI.Init(initialHearts, maxHearts);
+         currentHeartID = initialHearts - 1;
+         
+     }
     private void GetSettings()
     {
         initialHearts = settings.initialHealth;
         maxHearts = settings.maxHealth;
     }
-
-    private void Init()
-    {
-        healthUI.Init(initialHearts, maxHearts);
-        currentHeartID = initialHearts - 1;
-    }
-
+    
     private void AddHeart()
     {
         if (currentHeartID != maxHearts)

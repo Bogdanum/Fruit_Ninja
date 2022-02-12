@@ -14,13 +14,13 @@ public class RestartPopup : MonoBehaviour
         {
             newBestScore.SetActive(true);
         }
-        animator.AccrualAnimation(score, ScoreManager.Score / 2, ScoreManager.Score);
-        animator.AccrualAnimation(bestscore, PlayerData.BestScore / 1.5f, PlayerData.BestScore);
+        animator.AccrualAnimation(score, Random.Range(0, ScoreManager.Score), ScoreManager.Score);
+        animator.AccrualAnimation(bestscore, Random.Range(0, PlayerData.BestScore), PlayerData.BestScore);
     }
 
     public void Restart()
     {
-        SceneLoader.LoadSceneAsync(SceneEnums.Scene.GameScene);
+        GameplayEvents.SendRestartEvent();
     }
 
     public void GoHome()

@@ -7,7 +7,7 @@ public class Blade : MonoBehaviour
 
     private GameObject currentTrail;
     private bool isCutting = false;
-    private bool isGameOver = false;
+    private bool blocked = false;
     private Vector2 _prevBladePosition;
     private Vector2 _currentMousePosition;
 
@@ -15,15 +15,15 @@ public class Blade : MonoBehaviour
     private void Awake()
     {
         GameplayEvents.GameOver.AddListener(BlockBlade);
+        GameplayEvents.Restart.AddListener(ActivateBlade);
         InputEvents.MouseClickOrTouch.AddListener(StartCutting);
         InputEvents.MouseUp.AddListener(StopCutting);
         InputEvents.MousePosition.AddListener(SetMousePosition);
     }
 
-    private void BlockBlade()
-    {
-        isGameOver = true;
-    }
+    private void BlockBlade() => blocked = true;
+
+    private void ActivateBlade() => blocked = false;
 
     private void SetMousePosition(Vector3 position)
     {
@@ -32,7 +32,7 @@ public class Blade : MonoBehaviour
     
     private void Update()
     {
-        if (isGameOver)
+        if (blocked)
         {
             return;
         }

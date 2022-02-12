@@ -11,6 +11,7 @@ public class UIMediator : MonoBehaviour
     private void Awake()
     {
         GameplayEvents.GameOver.AddListener(ShowGameOverPopup);
+        GameplayEvents.Restart.AddListener(HideGameOverPopup);
         InitUI();
     }
 
@@ -24,6 +25,11 @@ public class UIMediator : MonoBehaviour
     {
         gameOverPopupPanel.FadeIn(settings.gameOverPopupFadeInDuration);
         restartPopup.Init();
+    }
+
+    private void HideGameOverPopup()
+    {
+        gameOverPopupPanel.FadeOut(settings.gameOverPopupFadeInDuration);
     }
 
     public void FadeInFaderPanel()

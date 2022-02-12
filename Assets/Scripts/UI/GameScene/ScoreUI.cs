@@ -14,6 +14,7 @@ public class ScoreUI : MonoBehaviour
         InitBestScore(PlayerData.BestScore);
         UIEvents.OnScoreUpdate.AddListener(UpdateScoreLabel);
         UIEvents.OnBestScoreUpdate.AddListener(UpdateBestScore);
+        GameplayEvents.Restart.AddListener(Restart);
     }
 
     private void InitBestScore(int score)
@@ -32,5 +33,10 @@ public class ScoreUI : MonoBehaviour
     {
         animator.AccrualAnimation(bestScoreText, bestScore, score);
         bestScore = score;
+    }
+
+    private void Restart()
+    {
+        currScore = 0;
     }
 }

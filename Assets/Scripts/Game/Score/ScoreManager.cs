@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     {
         GameplayEvents.PointsIncrease.AddListener(IncrementScore);
         GameplayEvents.GameOver.AddListener(GameOver);
+        GameplayEvents.Restart.AddListener(Restart);
         NewBest = false;
         Score = 0;
     }
@@ -36,8 +37,13 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    private void GameOver() => gameActive = false;
+
+    private void Restart()
     {
-        gameActive = false;
+        gameActive = true;
+        Score = 0;
+        NewBest = false;
+        UIEvents.SendScoreUpdateEvent(Score);
     }
 }

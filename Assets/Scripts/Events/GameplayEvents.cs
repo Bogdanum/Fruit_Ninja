@@ -7,6 +7,7 @@ public static class GameplayEvents
     public static UnityEvent<Vector3, float, float> BombExplosion = new UnityEvent<Vector3, float, float>();
     public static UnityEvent IncreasingComplexity = new UnityEvent();
     public static UnityEvent GameOver = new UnityEvent();
+    public static UnityEvent Restart = new UnityEvent();
     public static UnityEvent TakingDamage = new UnityEvent();
     public static UnityEvent Healing = new UnityEvent();
     public static void SendPointsIncreaseEvent(int value)
@@ -22,6 +23,8 @@ public static class GameplayEvents
     public static void SendIncreasingComplexityEvent() => IncreasingComplexity.Invoke();
     
     public static void SendGameOverEvent() => GameOver.Invoke();
+
+    public static void SendRestartEvent() => Restart.Invoke();
 
     public static void SendTakingDamageEvent() => TakingDamage.Invoke();
 
