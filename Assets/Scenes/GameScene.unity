@@ -829,7 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdcbff5730d84499935f2d6e5f58cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsPersistent: 1
   prefab: {fileID: 7599362830573268746, guid: a6511fca972f241ff8b416100f00064a, type: 3}
   initialQuantity: 12
 --- !u!1 &441580320
@@ -962,7 +961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58fdc6f875634c5cbf3c773c40a8030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsPersistent: 1
   prefab: {fileID: 4948880161495602570, guid: 9470cca964d1d41ad9349b38164b2c04, type: 3}
   initialQuantity: 20
 --- !u!1 &508937274
@@ -1756,7 +1754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7115bebf7895c4729873e06ff46dbf09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsPersistent: 1
   prefab: {fileID: 2779737730668503887, guid: aa130c6b6a67d44ac9bcb2e2ccea220f, type: 3}
   initialQuantity: 10
 --- !u!1 &902681921
@@ -2151,6 +2148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056133329}
   - component: {fileID: 1056133330}
+  - component: {fileID: 1056133331}
   m_Layer: 0
   m_Name: ScoreUI
   m_TagString: Untagged
@@ -2193,6 +2191,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 85861103}
   bestScoreText: {fileID: 537465107}
+  animator: {fileID: 1056133331}
+--- !u!114 &1056133331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056133328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6393c84b28e8e4e048c1da6da9e2c020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accrualAnimEase: 18
+  animDuration: 1
 --- !u!1 &1087257286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b7d9bb903044b4287b52c1776b44b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsPersistent: 1
   prefab: {fileID: 511690648237131349, guid: 8317eae67d85c49dbbbcee7cfc853778, type: 3}
   initialQuantity: 10
 --- !u!1 &1917592322
@@ -3403,6 +3415,7 @@ GameObject:
   - component: {fileID: 1917592325}
   - component: {fileID: 1917592324}
   - component: {fileID: 1917592326}
+  - component: {fileID: 1917592327}
   m_Layer: 0
   m_Name: RestartPopup
   m_TagString: Untagged
@@ -3485,6 +3498,21 @@ MonoBehaviour:
   score: {fileID: 320884684}
   bestscore: {fileID: 717264669}
   newBestScore: {fileID: 984379811}
+  animator: {fileID: 1917592327}
+--- !u!114 &1917592327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917592322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6393c84b28e8e4e048c1da6da9e2c020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accrualAnimEase: 18
+  animDuration: 1
 --- !u!1001 &1958897319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3672,7 +3700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c07c0f5e08554529806d320dffcd53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsPersistent: 0
   prefab: {fileID: 6551413346640640639, guid: 9240c8671ee3a466191139b8a9405eae, type: 3}
   initialQuantity: 4
 --- !u!1 &2078678053

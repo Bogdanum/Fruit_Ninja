@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,31 +5,32 @@ public class ScoreUI : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
     [SerializeField] private Text bestScoreText;
+    [SerializeField] private AccrualAnimator animator;
 
+    private int currScore;
+    private int bestScore;
     private void Awake()
     {
-        UpdateBestScore(PlayerData.BestScore);
+        InitBestScore(PlayerData.BestScore);
         UIEvents.OnScoreUpdate.AddListener(UpdateScoreLabel);
         UIEvents.OnBestScoreUpdate.AddListener(UpdateBestScore);
     }
 
+    private void InitBestScore(int score)
+    {
+        bestScoreText.text = score.ToString();
+        bestScore = score;
+    }
+
     private void UpdateScoreLabel(int score)
     {
-        scoreText.text = score.ToString();
-        DoScale(scoreText.transform);
+        animator.AccrualAnimation(scoreText, currScore, score);
+        currScore = score;
     }
 
     private void UpdateBestScore(int score)
     {
-        bestScoreText.text = score.ToString();
-        DoScale(bestScoreText.transform);
-    }
-
-    private void DoScale(Transform transform)
-    {
-        var sequence = DOTween.Sequence();
-        Tween tween = transform.DOScale(new Vector3(0.85f, 0.85f, 1), 0.1f);
-        sequence.Append(tween);
-        sequence.OnComplete(() => transform.localScale = Vector3.one);
+        animator.AccrualAnimation(bestScoreText, bestScore, score);
+        bestScore = score;
     }
 }

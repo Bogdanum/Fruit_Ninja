@@ -6,6 +6,7 @@ public class RestartPopup : MonoBehaviour
     [SerializeField] private Text score;
     [SerializeField] private Text bestscore;
     [SerializeField] private GameObject newBestScore;
+    [SerializeField] private AccrualAnimator animator;
 
     public void Init()
     {
@@ -13,8 +14,8 @@ public class RestartPopup : MonoBehaviour
         {
             newBestScore.SetActive(true);
         }
-        score.text = ScoreManager.Score.ToString();
-        bestscore.text = PlayerData.BestScore.ToString();
+        animator.AccrualAnimation(score, ScoreManager.Score / 2, ScoreManager.Score);
+        animator.AccrualAnimation(bestscore, PlayerData.BestScore / 1.5f, PlayerData.BestScore);
     }
 
     public void Restart()
