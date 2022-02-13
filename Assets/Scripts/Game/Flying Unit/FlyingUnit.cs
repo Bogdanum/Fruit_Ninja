@@ -8,6 +8,7 @@ public class FlyingUnit : MonoBehaviour
     [SerializeField] private ParticleController particleController;
     public bool Active { get; private set; }
 
+    private FlyingUnitData _flyingUnitData;
     private FlyingUnitData.FlyingUnitProperties _properties;
     private ParticleSystem _particleSystem;
     private Vector2 _mousePosition;
@@ -16,8 +17,9 @@ public class FlyingUnit : MonoBehaviour
 
     private const float DeathlineOffset = 1.5f;
 
-    public void Init(FlyingUnitData.FlyingUnitProperties properties)
+    public void Init(FlyingUnitData flyingUnitData, FlyingUnitData.FlyingUnitProperties properties)
     {
+        _flyingUnitData = flyingUnitData;
         _properties = properties;
         spriteRenderer.sprite = properties.sprite;
         spriteRenderer.sortingOrder = transform.GetInstanceID();
@@ -52,6 +54,7 @@ public class FlyingUnit : MonoBehaviour
     public void Launch(float verticalVelocity, float speed, Vector3 startPosition)
     {
         Active = true;
+        gameObject.SetActive(true);
         float rotationSpeed = RandomRotationSpeedAndDirection();
         transform.position = startPosition;
         transform.localScale = _properties.scale;
@@ -79,7 +82,7 @@ public class FlyingUnit : MonoBehaviour
         {
             Active = false;
             FlyingUnitPool.Instance.ReturnToPool(this);
-            if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Vegetable)
+            if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Fruit)
             {
                 GameplayEvents.SendTakingDamageEvent();
             }
@@ -101,7 +104,7 @@ public class FlyingUnit : MonoBehaviour
             if (distance < _properties.radius)
             {
                 _particleSystem.transform.position = transform.position;
-                unitEffect.PerformEffect(_properties, particleController);
+                unitEffect.PerformEffect(_flyingUnitData, _properties, particleController);
                 FlyingUnitPool.Instance.ReturnToPool(this);
             }
         }

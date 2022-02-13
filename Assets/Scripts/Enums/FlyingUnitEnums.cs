@@ -2,11 +2,11 @@ public static class FlyingUnitEnums
 {
     public enum FlyingUnitType
     {
-        Vegetable,
+        Fruit,
         Bomb,
         HealingPotion,
-        StringBag,
-        Freeze,
+        FruitsBag,
+        FreezePotion,
         Magnet
     }
 }

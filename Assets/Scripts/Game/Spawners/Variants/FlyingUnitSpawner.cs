@@ -88,19 +88,17 @@ public class FlyingUnitSpawner : Spawner
         }
     }
 
-    private void InitVegetable(FlyingUnit vegetable)
+    private void InitVegetable(FlyingUnit unit)
     {
         _flyingUnitProperties = GetRandomProperties();
-        vegetable.Init(_flyingUnitProperties);
+        unit.Init(_flyingUnitData, _flyingUnitProperties);
         center.position = GetRandomLinePosition();
-        vegetable.transform.rotation = transform.rotation;
-        vegetable.transform.position = center.position;
-        vegetable.gameObject.SetActive(true);
+        unit.transform.rotation = transform.rotation;
     }
 
     private FlyingUnitData.FlyingUnitProperties GetRandomProperties()
     {
-        var properties = _flyingUnitData.GetRandomVegetableProperties();
+        var properties = _flyingUnitData.GetRandomFlyingUnitProperties();
         if (properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.HealingPotion && _healthCounter.IsFull())
         {
             return GetRandomProperties();
