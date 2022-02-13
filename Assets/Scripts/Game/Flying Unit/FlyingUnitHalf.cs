@@ -3,7 +3,7 @@ using UnityEngine;
 public class FlyingUnitHalf : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer renderer;
-    [SerializeField] private PhysicsBody cutVegetablePhysics;
+    [SerializeField] private PhysicsBody physicsBody;
     [SerializeField] private LobuleMovement lobuleMovement;
 
     private const float DeathlineOffset = 1.5f;
@@ -15,7 +15,7 @@ public class FlyingUnitHalf : MonoBehaviour
        transform.localScale = localScale;
        transform.position = startPosition;
        gameObject.SetActive(true);
-       cutVegetablePhysics.Init(properties.gravity, physics._verticalVelocity, physics._speed, physics._rotationSpeed);
+       physicsBody.Init(properties.gravity, physics._verticalVelocity, physics._speed, physics._rotationSpeed);
        lobuleMovement.SetSpeed(lobuleSpeed);
    }
 

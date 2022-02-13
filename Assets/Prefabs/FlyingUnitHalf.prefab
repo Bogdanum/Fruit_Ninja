@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 622931598791865966}
-  cutVegetablePhysics: {fileID: 6528359331429044313}
+  physicsBody: {fileID: 6528359331429044313}
   lobuleMovement: {fileID: -4101783472601346522}
 --- !u!114 &6528359331429044313
 MonoBehaviour:

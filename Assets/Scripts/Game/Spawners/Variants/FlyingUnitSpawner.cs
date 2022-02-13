@@ -10,19 +10,21 @@ public class FlyingUnitSpawner : Spawner
     [SerializeField] private Transform center;
     [Space(20),SerializeField] 
     private SpawnerSettings spawnerSettings;
-    
-    private int _minPackOfVegetablesSize;
-    private int _maxPackOfVegetablesSize;
+
+    private int _minPackOfFlyingUnitsSize;
+    private int _maxPackOfFlyingUnitsSize;
     private int _complicationCounter = 0;
     private GameZone _zone;
-    private FlyingUnitData _vegetableData;
-    private FlyingUnitData.FlyingUnitProperties _vegetableProperties;
+    private HealthCounter _healthCounter;
+    private FlyingUnitData _flyingUnitData;
+    private FlyingUnitData.FlyingUnitProperties _flyingUnitProperties;
 
     public override int SpawnChanceInPercent { get => spawnerSettings.spawnChanceInPercent; }
     
-    public override void Init(GameZone zone)
+    public override void Init(GameZone zone, HealthCounter healthCounter)
     {
         _zone = zone;
+        _healthCounter = healthCounter;
         CorrectPositionX();
     }
 
@@ -47,14 +49,14 @@ public class FlyingUnitSpawner : Spawner
 
     private void GetParameters()
     {
-        _minPackOfVegetablesSize = spawnerSettings.minPackOfVegetablesSize;
-        _maxPackOfVegetablesSize = spawnerSettings.maxPackOfVegetablesSize;
-        _vegetableData = spawnerSettings.vegetableData;
+        _minPackOfFlyingUnitsSize = spawnerSettings.minPackOfVegetablesSize;
+        _maxPackOfFlyingUnitsSize = spawnerSettings.maxPackOfVegetablesSize;
+        _flyingUnitData = spawnerSettings.vegetableData;
     }
 
     private void IncreaseSizeOfPack()
     {
-        if (_maxPackOfVegetablesSize >= spawnerSettings.finalMaxPackOfVegetablesSize)
+        if (_maxPackOfFlyingUnitsSize >= spawnerSettings.finalMaxPackOfVegetablesSize)
         {
             return;
         }
@@ -63,14 +65,14 @@ public class FlyingUnitSpawner : Spawner
         if (_complicationCounter > spawnerSettings.numberOfComplicationsToIncreasePack)
         {
             _complicationCounter = 0;
-            _minPackOfVegetablesSize++;
-            _maxPackOfVegetablesSize++;
+            _minPackOfFlyingUnitsSize++;
+            _maxPackOfFlyingUnitsSize++;
         }
     }
 
     public override void Launch()
     {
-        int packSize = Random.Range(_minPackOfVegetablesSize, _maxPackOfVegetablesSize);
+        int packSize = Random.Range(_minPackOfFlyingUnitsSize, _maxPackOfFlyingUnitsSize);
         StartCoroutine(LaunchRoutine(packSize));
     }
 
@@ -88,12 +90,22 @@ public class FlyingUnitSpawner : Spawner
 
     private void InitVegetable(FlyingUnit vegetable)
     {
-        _vegetableProperties = _vegetableData.GetRandomVegetableProperties();
-        vegetable.Init(_vegetableProperties);
+        _flyingUnitProperties = GetRandomProperties();
+        vegetable.Init(_flyingUnitProperties);
         center.position = GetRandomLinePosition();
         vegetable.transform.rotation = transform.rotation;
         vegetable.transform.position = center.position;
         vegetable.gameObject.SetActive(true);
+    }
+
+    private FlyingUnitData.FlyingUnitProperties GetRandomProperties()
+    {
+        var properties = _flyingUnitData.GetRandomVegetableProperties();
+        if (properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.HealingPotion && _healthCounter.IsFull())
+        {
+            return GetRandomProperties();
+        }
+        return properties;
     }
 
     private Vector3 GetRandomLinePosition()
@@ -105,7 +117,7 @@ public class FlyingUnitSpawner : Spawner
     
     private void LaunchVegetable(FlyingUnit vegetable)
     {
-        Vector3 flightDirection = GetFlightDirection().normalized * _vegetableProperties.speed;
+        Vector3 flightDirection = GetFlightDirection().normalized * _flyingUnitProperties.speed;
         float verticalVelocity = flightDirection.y;
         float speed = flightDirection.x;
         vegetable.Launch(verticalVelocity, speed, center.position);

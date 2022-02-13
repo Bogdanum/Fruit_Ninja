@@ -24,8 +24,8 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     gravity: 10
     radius: 1
-    speed: 15
-    lobuleSpeed: 1.5
+    speed: 13
+    lobuleSpeed: 2
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
@@ -44,8 +44,8 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     gravity: 10
     radius: 1
-    speed: 15
-    lobuleSpeed: 1.5
+    speed: 13
+    lobuleSpeed: 2
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
@@ -64,8 +64,8 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     gravity: 10
     radius: 1
-    speed: 15
-    lobuleSpeed: 1.5
+    speed: 13
+    lobuleSpeed: 2
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
@@ -84,8 +84,8 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     gravity: 10
     radius: 1
-    speed: 15
-    lobuleSpeed: 1.5
+    speed: 13
+    lobuleSpeed: 2
     minRotationSpeed: 20
     maxRotationSpeed: 150
     percent: 50
@@ -104,7 +104,7 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     gravity: 10
     radius: 1
-    speed: 15
+    speed: 13
     lobuleSpeed: 1
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -113,3 +113,23 @@ MonoBehaviour:
     explosionRadius: 5
     explosionPower: 3
     flyingUnitType: 1
+  - name: Healing Potion
+    sortingLayerName: Bomb
+    sprite: {fileID: 21300000, guid: 01cf1af15dd804991aa8acbc91817197, type: 3}
+    leftHalf: {fileID: 0}
+    rightHalf: {fileID: 0}
+    splashColor: {r: 0, g: 0, b: 0, a: 0}
+    particlesColor: {r: 0.9339623, g: 0.2687344, b: 0.2687344, a: 1}
+    particleSystem: {fileID: 7703304556862745692, guid: 3102784d728714ea499c766616f0053c, type: 3}
+    scale: {x: 1, y: 1}
+    gravity: 10
+    radius: 1
+    speed: 13
+    lobuleSpeed: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 50
+    pointsForDestruction: 0
+    explosionRadius: 0
+    explosionPower: 0
+    flyingUnitType: 2

@@ -19,6 +19,10 @@ public class FlyingUnitEffect : MonoBehaviour
           {
                BombEffect();
           }
+          else if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.HealingPotion)
+          {
+               HealingPotionEffect();
+          }
      }
 
      private void VegetableEffect()
@@ -39,6 +43,12 @@ public class FlyingUnitEffect : MonoBehaviour
           explosion.Init(transform.position);
           GameplayEvents.SendBombExplosionEvent(transform.position, _properties.explosionRadius, _properties.explosionPower);
           GameplayEvents.SendTakingDamageEvent();
+     }
+     
+     private void HealingPotionEffect()
+     {
+          _particleController.Play();
+          GameplayEvents.SendHealingEvent();
      }
      
      private void SpawnAndInitHulves()

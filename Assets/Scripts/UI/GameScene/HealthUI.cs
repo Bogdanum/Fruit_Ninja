@@ -23,7 +23,7 @@ public class HealthUI : MonoBehaviour
 
     public void AddHeart(int currentHeartID, float durationOfAppearance)
     {
-        SetGridSize(currentHeartID--);
+        SetGridSize(currentHeartID + 1);
         hearts[currentHeartID].Show(durationOfAppearance);
     }
     

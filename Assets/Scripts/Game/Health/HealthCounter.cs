@@ -8,7 +8,7 @@ public class HealthCounter : MonoBehaviour
     private int initialHearts;
     private int maxHearts;
     private int currentHeartID;
-
+    
     private void Awake()
     {
         Init();
@@ -32,7 +32,7 @@ public class HealthCounter : MonoBehaviour
     
     private void AddHeart()
     {
-        if (currentHeartID != maxHearts)
+        if (!IsFull())
         {
             currentHeartID++;
             healthUI.AddHeart(currentHeartID, settings.durationOfAppearance);
@@ -58,5 +58,10 @@ public class HealthCounter : MonoBehaviour
             isGameOver = true;
             GameplayEvents.SendGameOverEvent();
         }
+    }
+
+    public bool IsFull()
+    {
+        return maxHearts == currentHeartID + 1;
     }
 }

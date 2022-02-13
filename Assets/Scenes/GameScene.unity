@@ -2019,6 +2019,7 @@ MonoBehaviour:
   - {fileID: 1958897321}
   - {fileID: 1287720648}
   zone: {fileID: 947832989}
+  healthCounter: {fileID: 2078678056}
 --- !u!4 &977396894
 Transform:
   m_ObjectHideFlags: 0

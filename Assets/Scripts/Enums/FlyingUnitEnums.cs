@@ -4,7 +4,7 @@ public static class FlyingUnitEnums
     {
         Vegetable,
         Bomb,
-        ExtraLife,
+        HealingPotion,
         StringBag,
         Freeze,
         Magnet
