@@ -122,13 +122,13 @@ MonoBehaviour:
     particlesColor: {r: 0.9339623, g: 0.2687344, b: 0.2687344, a: 1}
     particleSystem: {fileID: 7703304556862745692, guid: 3102784d728714ea499c766616f0053c, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 10
+    gravity: 12
     radius: 1
-    speed: 13
+    speed: 17
     lobuleSpeed: 1
     minRotationSpeed: 20
     maxRotationSpeed: 150
-    percent: 50
+    percent: 5
     pointsForDestruction: 0
     explosionRadius: 0
     explosionPower: 0
