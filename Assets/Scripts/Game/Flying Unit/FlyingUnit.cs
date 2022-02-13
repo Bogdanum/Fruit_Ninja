@@ -5,9 +5,11 @@ public class FlyingUnit : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private PhysicsBody physicsBody;
     [SerializeField] private FlyingUnitEffect unitEffect;
+    [SerializeField] private ParticleController particleController;
     public bool Active { get; private set; }
 
     private FlyingUnitData.FlyingUnitProperties _properties;
+    private ParticleSystem _particleSystem;
     private Vector2 _mousePosition;
     private float _minRotationSpeed;
     private float _maxRotationSpeed;
@@ -22,14 +24,31 @@ public class FlyingUnit : MonoBehaviour
         spriteRenderer.sortingLayerName = properties.sortingLayerName;
         _minRotationSpeed = properties.minRotationSpeed;
         _maxRotationSpeed = properties.maxRotationSpeed;
+        InstantiateParticleSystem();
         InputEvents.MousePosition.AddListener(SetMousePosition);
+    }
+
+    private void InstantiateParticleSystem()
+    {
+        if (_particleSystem != null)
+        {
+            Destroy(_particleSystem.gameObject);
+        }
+        _particleSystem = Instantiate(_properties.particleSystem, FlyingUnitPool.Instance.transform);
+        InitParticleController();
+    }
+
+    private void InitParticleController()
+    {
+        particleController.Init(_particleSystem);
+        particleController.ChangeParticleColor(_properties.particlesColor);
     }
 
     private void SetMousePosition(Vector3 position)
     {
         _mousePosition = position;
     }
-    
+
     public void Launch(float verticalVelocity, float speed, Vector3 startPosition)
     {
         Active = true;
@@ -81,7 +100,8 @@ public class FlyingUnit : MonoBehaviour
 
             if (distance < _properties.radius)
             {
-                unitEffect.PerformEffect(_properties);
+                _particleSystem.transform.position = transform.position;
+                unitEffect.PerformEffect(_properties, particleController);
                 FlyingUnitPool.Instance.ReturnToPool(this);
             }
         }

@@ -18,11 +18,13 @@ MonoBehaviour:
     sprite: {fileID: -6293552391084325580, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     leftHalf: {fileID: 5325017651551143923, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     rightHalf: {fileID: 930097456254945593, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    splash: {fileID: 5482441018340050850, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splashColor: {r: 0.8862746, g: 0.32156864, b: 0.34117648, a: 0.78431374}
+    particlesColor: {r: 0.8679245, g: 0.25792095, b: 0.2791017, a: 1}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 6
+    gravity: 10
     radius: 1
-    speed: 10
+    speed: 15
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -36,11 +38,13 @@ MonoBehaviour:
     sprite: {fileID: 361834087558765331, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     leftHalf: {fileID: 2404161308526564221, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     rightHalf: {fileID: -8333523261860205761, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    splash: {fileID: -4700812662300453564, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splashColor: {r: 0.57254905, g: 0.69411767, b: 0.25490198, a: 0.78431374}
+    particlesColor: {r: 0.6313726, g: 0.7725491, b: 0.25490198, a: 1}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 6
+    gravity: 10
     radius: 1
-    speed: 10
+    speed: 15
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -54,11 +58,13 @@ MonoBehaviour:
     sprite: {fileID: 6824485124193487074, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     leftHalf: {fileID: -3102792882781756944, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     rightHalf: {fileID: -3538306632821447154, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    splash: {fileID: 8871794225015871039, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splashColor: {r: 0.8313726, g: 0.73333335, b: 0.53333336, a: 0.78431374}
+    particlesColor: {r: 0.8301887, g: 0.69493264, b: 0.41901034, a: 1}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 6
+    gravity: 10
     radius: 1
-    speed: 10
+    speed: 15
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -72,11 +78,13 @@ MonoBehaviour:
     sprite: {fileID: 7987406100781202217, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     leftHalf: {fileID: 3315871332114094744, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     rightHalf: {fileID: -7956023556263322067, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
-    splash: {fileID: 6015702095551410897, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    splashColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+    particlesColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 6
+    gravity: 10
     radius: 1
-    speed: 10
+    speed: 15
     lobuleSpeed: 1.5
     minRotationSpeed: 20
     maxRotationSpeed: 150
@@ -90,11 +98,13 @@ MonoBehaviour:
     sprite: {fileID: -6290262730154795570, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
     leftHalf: {fileID: 0}
     rightHalf: {fileID: 0}
-    splash: {fileID: 0}
+    splashColor: {r: 0, g: 0, b: 0, a: 0}
+    particlesColor: {r: 0, g: 0, b: 0, a: 0}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
     scale: {x: 1, y: 1}
-    gravity: 6
+    gravity: 10
     radius: 1
-    speed: 10
+    speed: 15
     lobuleSpeed: 1
     minRotationSpeed: 20
     maxRotationSpeed: 150

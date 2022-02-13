@@ -4,10 +4,12 @@ public class FlyingUnitEffect : MonoBehaviour
 {
      [SerializeField] private PhysicsBody physicsBody;
      private FlyingUnitData.FlyingUnitProperties _properties;
+     private ParticleController _particleController;
 
-     public void PerformEffect(FlyingUnitData.FlyingUnitProperties properties)
+     public void PerformEffect(FlyingUnitData.FlyingUnitProperties properties, ParticleController particleController)
      {
           _properties = properties;
+          _particleController = particleController;
 
           if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Vegetable)
           {
@@ -25,7 +27,10 @@ public class FlyingUnitEffect : MonoBehaviour
           SpawnSplash();
           int points = _properties.pointsForDestruction * ComboManager.Instance.GetMultiplier();
           GameplayEvents.SendPointsIncreaseEvent(points);
-          ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position,_properties.pointsForDestruction, points);
+          if (points > _properties.pointsForDestruction)
+          {
+               ScoreTextSpawner.Instance.SpawnPointsForCutting(transform.position, points);
+          }
      }
      
      private void BombEffect()
@@ -52,6 +57,7 @@ public class FlyingUnitEffect : MonoBehaviour
      private void SpawnSplash()
      {
           var splash = SplashPool.Instance.Get();
-          splash.Init(_properties.splash, transform.position);
+          splash.Init(_properties.splashColor, transform.position);
+          _particleController.Play();
      }
 }

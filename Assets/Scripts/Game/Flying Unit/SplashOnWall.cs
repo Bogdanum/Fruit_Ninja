@@ -1,15 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class SplashOnWall : MonoBehaviour
 {
     [SerializeField] private SplashOnWallSettings settings;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Animator animator;
 
-    public void Init(Sprite splashSprite, Vector3 position)
+    public void Init(Color splashColor, Vector3 position)
     {
-        spriteRenderer.sprite = splashSprite;
+        spriteRenderer.color = splashColor;
         spriteRenderer.sortingOrder = transform.GetInstanceID();
         transform.position = position;
         transform.localScale = settings.scale;
@@ -22,9 +22,12 @@ public class SplashOnWall : MonoBehaviour
     {
         yield return new WaitForSeconds(settings.lifeTime);
 
-        animator.SetBool(settings.animationTriggerName, true);
-        yield return new WaitForSeconds(settings.timeForAnimation);
-        
-        SplashPool.Instance.ReturnToPool(this);
+        var finishColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
+        var tween = spriteRenderer.DOColor(finishColor, settings.timeForAnimation);
+        tween.OnComplete(() =>
+        {
+            tween.Kill();
+            SplashPool.Instance.ReturnToPool(this);
+        });
     }
 }

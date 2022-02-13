@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007253a9639e45feb978b8090a142f9, type: 3}
   m_Name: UISettings
   m_EditorClassIdentifier: 
-  gameOverPopupFadeInDuration: 0.5
+  gameOverPopupFadeInDuration: 0.8
   blackoutDurationOnBoot: 2

@@ -11,7 +11,9 @@ public class FlyingUnitData : ScriptableObject
         public Sprite sprite;
         public Sprite leftHalf;
         public Sprite rightHalf;
-        public Sprite splash;
+        public Color splashColor;
+        public Color particlesColor;
+        public ParticleSystem particleSystem;
         public Vector2 scale;
         public float gravity;
         public float radius;

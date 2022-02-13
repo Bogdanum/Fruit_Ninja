@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4883166955746333172}
   - component: {fileID: 4883166955746333175}
-  - component: {fileID: 2709927856220052738}
   - component: {fileID: 511690648237131349}
   m_Layer: 0
   m_Name: SplashOnWall
@@ -73,36 +72,17 @@ SpriteRenderer:
   m_SortingLayerID: -1127454465
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e72892ec2065b452aab4116933c29f5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2709927856220052738
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4883166955746333174}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe9a112117cbf4c86bdda8b7a4c2d8a8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &511690648237131349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,4 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: add2c8256b3294b0bb938b6c061c5abb, type: 2}
   spriteRenderer: {fileID: 4883166955746333175}
-  animator: {fileID: 2709927856220052738}
+  animator: {fileID: 0}

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6924031640904261197}
   - component: {fileID: 7964960493052928941}
   - component: {fileID: 6283736580416214186}
+  - component: {fileID: 3216112998895300458}
   m_Layer: 0
   m_Name: FlyingUnit
   m_TagString: Untagged
@@ -76,15 +77,15 @@ SpriteRenderer:
   m_SortingLayerID: -1689470637
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7987406100781202217, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 2.02, y: 2.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7599362830573268746
@@ -102,6 +103,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6987395452820422520}
   physicsBody: {fileID: 7964960493052928941}
   unitEffect: {fileID: 576007991896338763}
+  particleController: {fileID: 3216112998895300458}
 --- !u!114 &576007991896338763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,5 +155,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 7599362830573268746}
-  Visible: 1
+  Visible: 0
   lineColor: {r: 1, g: 0.4332019, b: 0, a: 1}
+--- !u!114 &3216112998895300458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306282099115401275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1a5164760484abb8224d5fb393b20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

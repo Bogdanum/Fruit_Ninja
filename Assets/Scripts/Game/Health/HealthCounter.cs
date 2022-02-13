@@ -4,6 +4,7 @@ public class HealthCounter : MonoBehaviour
 {
     [SerializeField] private HealthUI healthUI;
     [SerializeField] private HealthCounterSettings settings;
+    private bool isGameOver;
     private int initialHearts;
     private int maxHearts;
     private int currentHeartID;
@@ -20,7 +21,8 @@ public class HealthCounter : MonoBehaviour
          GetSettings();
          healthUI.Init(initialHearts, maxHearts);
          currentHeartID = initialHearts - 1;
-         
+         isGameOver = false;
+
      }
     private void GetSettings()
     {
@@ -51,6 +53,10 @@ public class HealthCounter : MonoBehaviour
 
     private void GameOver()
     {
-        GameplayEvents.SendGameOverEvent();
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            GameplayEvents.SendGameOverEvent();
+        }
     }
 }
