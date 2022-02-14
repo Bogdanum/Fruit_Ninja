@@ -81,6 +81,7 @@ public class FlyingUnit : MonoBehaviour
         if (OutOfBounds())
         {
             Active = false;
+            physicsBody.Deactivate();
             FlyingUnitPool.Instance.ReturnToPool(this);
             if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Fruit)
             {
@@ -105,6 +106,7 @@ public class FlyingUnit : MonoBehaviour
             {
                 _particleSystem.transform.position = transform.position;
                 unitEffect.PerformEffect(_flyingUnitData, _properties, particleController);
+                physicsBody.Deactivate();
                 FlyingUnitPool.Instance.ReturnToPool(this);
             }
         }

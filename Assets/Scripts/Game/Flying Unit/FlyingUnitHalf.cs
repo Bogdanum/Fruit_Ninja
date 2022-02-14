@@ -23,6 +23,7 @@ public class FlyingUnitHalf : MonoBehaviour
     {
         if (OutOfBounds())
         {
+            physicsBody.Deactivate();
             PoolOfHalves.Instance.ReturnToPool(this);
         }
     }

@@ -33,9 +33,11 @@ MonoBehaviour:
     pointsForDestruction: 10
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Feijoa
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -56,9 +58,11 @@ MonoBehaviour:
     pointsForDestruction: 10
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Pomelo
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -79,9 +83,11 @@ MonoBehaviour:
     pointsForDestruction: 10
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Coconut
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -102,9 +108,11 @@ MonoBehaviour:
     pointsForDestruction: 10
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Bomb
     flyingUnitType: 1
     sortingLayerName: Bomb
@@ -125,9 +133,11 @@ MonoBehaviour:
     pointsForDestruction: 0
     explosionRadius: 5
     explosionPower: 3
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Healing Potion
     flyingUnitType: 2
     sortingLayerName: Bomb
@@ -148,9 +158,11 @@ MonoBehaviour:
     pointsForDestruction: 0
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 0, y: 0}
-    velocity: {x: 0, y: 0}
-    angle: {x: 0, y: 0}
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 0
+    slowMultiplier: 0
   - name: Fruits Bag
     flyingUnitType: 3
     sortingLayerName: Bomb
@@ -163,7 +175,7 @@ MonoBehaviour:
     speed: 13
     minRotationSpeed: 20
     maxRotationSpeed: 150
-    percent: 50
+    percent: 10
     leftHalf: {fileID: 0}
     rightHalf: {fileID: 0}
     splashColor: {r: 0, g: 0, b: 0, a: 0}
@@ -171,6 +183,33 @@ MonoBehaviour:
     pointsForDestruction: 0
     explosionRadius: 0
     explosionPower: 0
-    countOfFruits: {x: 3, y: 5}
-    velocity: {x: 7, y: 7}
-    angle: {x: 40, y: 140}
+    countOfFruitsInBag: {x: 3, y: 5}
+    fruitsInBagVelocity: {x: 7, y: 7}
+    fruitLaunchAngleFromBag: {x: 50, y: 130}
+    freezeEffectTime: 0
+    slowMultiplier: 0
+  - name: Freeze Potion
+    flyingUnitType: 4
+    sortingLayerName: Bomb
+    sprite: {fileID: 21300000, guid: b30dfa3cd679e4bcd8fc1d3e7973df77, type: 3}
+    particlesColor: {r: 1, g: 1, b: 1, a: 1}
+    particleSystem: {fileID: 8624486413054705642, guid: d02a5867eff3c4e0d9b4e30a41853467, type: 3}
+    scale: {x: 1, y: 1}
+    gravity: 11
+    radius: 1
+    speed: 15
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 5
+    leftHalf: {fileID: 0}
+    rightHalf: {fileID: 0}
+    splashColor: {r: 0, g: 0, b: 0, a: 0}
+    lobuleSpeed: 1
+    pointsForDestruction: 0
+    explosionRadius: 0
+    explosionPower: 0
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 3
+    slowMultiplier: 0.2

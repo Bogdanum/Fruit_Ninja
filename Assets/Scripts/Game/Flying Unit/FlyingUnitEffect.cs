@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FlyingUnitEffect : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class FlyingUnitEffect : MonoBehaviour
                case FlyingUnitEnums.FlyingUnitType.FruitsBag:
                {
                     FruitsBagEffect();
+                    break;
+               }
+               case FlyingUnitEnums.FlyingUnitType.FreezePotion:
+               {
+                    FreezePotionEffect();
                     break;
                }
           }
@@ -108,5 +114,11 @@ public class FlyingUnitEffect : MonoBehaviour
           fruit.Init(_flyingUnitData, randomFruitProperties);
           fruit.transform.rotation = transform.rotation;
           fruit.Launch(direction.y, direction.x, transform.position);
+     }
+     
+     private void FreezePotionEffect()
+     {
+          _particleController.Play();
+          GameplayEvents.SendFreezePotionEvent(_properties.slowMultiplier, _properties.freezeEffectTime);
      }
 }

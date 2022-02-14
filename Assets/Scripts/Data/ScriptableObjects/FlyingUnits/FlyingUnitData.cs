@@ -35,6 +35,10 @@ public class FlyingUnitData : ScriptableObject
         public Vector2 countOfFruitsInBag;
         public Vector2 fruitsInBagVelocity;
         public Vector2 fruitLaunchAngleFromBag;
+
+        [Space(10), Header("Freeze potion params")]
+        public float freezeEffectTime;
+        public float slowMultiplier;
     }
 
     [SerializeField] private FlyingUnitProperties[] flyingUnitProperties;
