@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4948880161495602570, guid: 9470cca964d1d41ad9349b38164b2c04, type: 3}
-  initialQuantity: 20
+  initialQuantity: 50
 --- !u!1 &811088356
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 7599362830573268746, guid: a6511fca972f241ff8b416100f00064a, type: 3}
-  initialQuantity: 12
+  initialQuantity: 25
 --- !u!1 &1273684906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 511690648237131349, guid: 8317eae67d85c49dbbbcee7cfc853778, type: 3}
-  initialQuantity: 10
+  initialQuantity: 20
 --- !u!1 &1427202477
 GameObject:
   m_ObjectHideFlags: 0

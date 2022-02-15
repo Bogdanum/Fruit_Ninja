@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class FlyingUnitEffect : MonoBehaviour
 {
@@ -39,6 +38,11 @@ public class FlyingUnitEffect : MonoBehaviour
                case FlyingUnitEnums.FlyingUnitType.FreezePotion:
                {
                     FreezePotionEffect();
+                    break;
+               }
+               case FlyingUnitEnums.FlyingUnitType.Magnet:
+               {
+                    MagnetEffect();
                     break;
                }
           }
@@ -120,5 +124,18 @@ public class FlyingUnitEffect : MonoBehaviour
      {
           _particleController.Play();
           GameplayEvents.SendFreezePotionEvent(_properties.slowMultiplier, _properties.freezeEffectTime);
+     }
+     
+     private void MagnetEffect()
+     {
+          _particleController.Play();
+          GameplayEvents.SendMagnetEffectEvent(transform.position, _properties.magneticFieldRadius, _properties.magnetVelocityMultiplier);
+     }
+
+     public void EndMagnetEffect()
+     {
+          GameplayEvents.SendStopMagneticEffect();
+          physicsBody.ChangeVelocity(0, 0);
+          physicsBody.Activate();
      }
 }

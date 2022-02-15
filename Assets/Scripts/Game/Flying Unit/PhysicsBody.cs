@@ -3,6 +3,10 @@ using UnityEngine;
 public class PhysicsBody : MonoBehaviour
 {
     private bool _active = false;
+    private bool _isMagnetActive = false;
+    private Vector3 _magnetPosition;
+    private float _magneticFieldRadius;
+    private float _magnetVelocityMultiplier;
     private float _gravity;
     private float _slowMultiplier = 1f;
     public float _verticalVelocity { get; private set; }
@@ -13,6 +17,8 @@ public class PhysicsBody : MonoBehaviour
     {
         GameplayEvents.SlowDownAllUnits.AddListener(SlowDown);
         GameplayEvents.StopGlobalSlowDownEffect.AddListener(StopSlowDownEffect);
+        GameplayEvents.MagnetEffect.AddListener(SetActiveMagnetParameters);
+        GameplayEvents.StopMagnetEffect.AddListener(MagnetDeactivated);
     }
 
     public void Init(float gravity, float verticalVelocity, float speed, float rotationSpeed)
@@ -30,7 +36,10 @@ public class PhysicsBody : MonoBehaviour
         _speed = newSpeed;
     }
 
+    public void Activate() => _active = true;
     public void Deactivate() => _active = false;
+    
+    private void MagnetDeactivated() => _isMagnetActive = false;
 
     private void Update()
     {
@@ -44,9 +53,25 @@ public class PhysicsBody : MonoBehaviour
     {
         float deltaTime = Time.deltaTime * _slowMultiplier;
         _verticalVelocity -= _gravity * deltaTime;
-        transform.position += new Vector3(_speed, _verticalVelocity, 0) * deltaTime;
+        var motionVector = GetMotionVector();
+        transform.position += motionVector * deltaTime;
         
         transform.Rotate(new Vector3(0, 0, _rotationSpeed) * deltaTime);
+    }
+
+    private Vector3 GetMotionVector()
+    {
+        if (_isMagnetActive)
+        {
+            Vector3 distanceVector = _magnetPosition - transform.position;
+            if (distanceVector.magnitude < _magneticFieldRadius)
+            {
+                ChangeVelocity(0, 0);
+                var multiplier = distanceVector.magnitude / _magneticFieldRadius;
+                return distanceVector.normalized * _magnetVelocityMultiplier * multiplier;
+            }
+        }
+        return new Vector3(_speed, _verticalVelocity, 0);
     }
 
     private void SlowDown(float slowMultiplier)
@@ -58,19 +83,12 @@ public class PhysicsBody : MonoBehaviour
     {
         _slowMultiplier = 1f;
     }
-    /*
-    private void SlowDown(float slowMultiplier, float time)
-    {
-        if (!_active) return;
-        
-        _slowMultiplier = slowMultiplier;
-        StartCoroutine(TemporarySlowDown(time));
-    }
 
-    private IEnumerator TemporarySlowDown(float time)
+    private void SetActiveMagnetParameters(Vector3 magnetPosition, float magneticFieldRadius, float magnetVelocityMultiplier)
     {
-        yield return new WaitForSeconds(time);
-        _slowMultiplier = 1f;
+        _magnetPosition = magnetPosition;
+        _magneticFieldRadius = magneticFieldRadius;
+        _magnetVelocityMultiplier = magnetVelocityMultiplier;
+        _isMagnetActive = true;
     }
-*/
 }

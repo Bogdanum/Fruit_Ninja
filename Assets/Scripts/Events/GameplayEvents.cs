@@ -7,7 +7,9 @@ public static class GameplayEvents
     public static UnityEvent<float, float> FreezePotion = new UnityEvent<float, float>();
     public static UnityEvent<float> SlowDownAllUnits = new UnityEvent<float>();
     public static UnityEvent<Vector3, float, float> BombExplosion = new UnityEvent<Vector3, float, float>();
+    public static UnityEvent<Vector3, float, float> MagnetEffect = new UnityEvent<Vector3, float, float>();
     public static UnityEvent StopGlobalSlowDownEffect = new UnityEvent();
+    public static UnityEvent StopMagnetEffect = new UnityEvent();
     public static UnityEvent IncreasingComplexity = new UnityEvent();
     public static UnityEvent GameOver = new UnityEvent();
     public static UnityEvent Restart = new UnityEvent();
@@ -33,7 +35,14 @@ public static class GameplayEvents
         BombExplosion.Invoke(bombPosition, explosionRadius, power);
     }
 
+    public static void SendMagnetEffectEvent(Vector3 magnetPosition, float magneticFieldRadius, float multiplier)
+    {
+        MagnetEffect.Invoke(magnetPosition, magneticFieldRadius, multiplier);
+    }
+
     public static void SendStopGlobalSlowDownEffect() => StopGlobalSlowDownEffect.Invoke();
+
+    public static void SendStopMagneticEffect() => StopMagnetEffect.Invoke();
 
     public static void SendIncreasingComplexityEvent() => IncreasingComplexity.Invoke();
     

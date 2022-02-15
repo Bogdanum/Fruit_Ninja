@@ -7,7 +7,12 @@ public class FlyingUnitHalf : MonoBehaviour
     [SerializeField] private LobuleMovement lobuleMovement;
 
     private const float DeathlineOffset = 1.5f;
-    
+
+    private void Awake()
+    {
+        GameplayEvents.Restart.AddListener(ReturnToPool);
+    }
+
     public void Init(FlyingUnitData.FlyingUnitProperties properties, PhysicsBody physics, Sprite sprite, Vector3 startPosition, Vector3 localScale, float lobuleSpeed)
    {
        renderer.sprite = sprite;
@@ -24,12 +29,17 @@ public class FlyingUnitHalf : MonoBehaviour
         if (OutOfBounds())
         {
             physicsBody.Deactivate();
-            PoolOfHalves.Instance.ReturnToPool(this);
+            ReturnToPool();
         }
     }
     
     private bool OutOfBounds()
     {
         return transform.position.y < GameZone.Instance.BottomLine * DeathlineOffset;
+    }
+
+    private void ReturnToPool()
+    {
+        PoolOfHalves.Instance.ReturnToPool(this);
     }
 }

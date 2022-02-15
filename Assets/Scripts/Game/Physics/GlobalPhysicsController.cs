@@ -8,6 +8,7 @@ public class GlobalPhysicsController : MonoBehaviour
     private void Awake()
     {
         GameplayEvents.FreezePotion.AddListener(SlowDownAllFlyingUnits);
+        GameplayEvents.Restart.AddListener(GameplayEvents.SendStopMagneticEffect);
     }
 
     private void SlowDownAllFlyingUnits(float slowMultiplier, float time)

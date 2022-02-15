@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FlyingUnit : MonoBehaviour
@@ -7,6 +8,7 @@ public class FlyingUnit : MonoBehaviour
     [SerializeField] private FlyingUnitEffect unitEffect;
     [SerializeField] private ParticleController particleController;
     public bool Active { get; private set; }
+    public bool FreeFall { get; private set; }
 
     private FlyingUnitData _flyingUnitData;
     private FlyingUnitData.FlyingUnitProperties _properties;
@@ -17,6 +19,11 @@ public class FlyingUnit : MonoBehaviour
 
     private const float DeathlineOffset = 1.5f;
 
+    private void Awake()
+    {
+        GameplayEvents.Restart.AddListener(() => ReturnToPool(false));
+    }
+
     public void Init(FlyingUnitData flyingUnitData, FlyingUnitData.FlyingUnitProperties properties)
     {
         _flyingUnitData = flyingUnitData;
@@ -26,6 +33,7 @@ public class FlyingUnit : MonoBehaviour
         spriteRenderer.sortingLayerName = properties.sortingLayerName;
         _minRotationSpeed = properties.minRotationSpeed;
         _maxRotationSpeed = properties.maxRotationSpeed;
+        FreeFall = false;
         InstantiateParticleSystem();
         InputEvents.MousePosition.AddListener(SetMousePosition);
     }
@@ -43,7 +51,14 @@ public class FlyingUnit : MonoBehaviour
     private void InitParticleController()
     {
         particleController.Init(_particleSystem);
-        particleController.ChangeParticleColor(_properties.particlesColor);
+        if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Magnet)
+        {
+            particleController.ChangeParticleProperties(_properties.particlesColor, _properties.magnetLifeTime - 1);
+        }
+        else
+        {
+            particleController.ChangeParticleProperties(_properties.particlesColor);
+        }
     }
 
     private void SetMousePosition(Vector3 position)
@@ -82,7 +97,7 @@ public class FlyingUnit : MonoBehaviour
         {
             Active = false;
             physicsBody.Deactivate();
-            FlyingUnitPool.Instance.ReturnToPool(this);
+            ReturnToPool(false);
             if (_properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Fruit)
             {
                 GameplayEvents.SendTakingDamageEvent();
@@ -98,6 +113,8 @@ public class FlyingUnit : MonoBehaviour
 
     private void CheckCut()
     {
+        if (FreeFall) return;
+        
         if (Blade.IsSwipeCut)
         {
             float distance = Vector2.Distance(transform.position, _mousePosition);
@@ -107,8 +124,26 @@ public class FlyingUnit : MonoBehaviour
                 _particleSystem.transform.position = transform.position;
                 unitEffect.PerformEffect(_flyingUnitData, _properties, particleController);
                 physicsBody.Deactivate();
-                FlyingUnitPool.Instance.ReturnToPool(this);
+                bool hasDelay = _properties.flyingUnitType == FlyingUnitEnums.FlyingUnitType.Magnet;
+                ReturnToPool(hasDelay);
             }
         }
+    }
+
+    private void ReturnToPool(bool hasDelay)
+    {
+        if (hasDelay)
+        {
+            StartCoroutine(ReturnToPoolWithDelay(_properties.magnetLifeTime)); 
+        }
+        else
+            FlyingUnitPool.Instance.ReturnToPool(this);
+    }
+
+    private IEnumerator ReturnToPoolWithDelay(float delay)
+    {
+        FreeFall = true;
+        yield return new WaitForSeconds(delay);
+        unitEffect.EndMagnetEffect();
     }
 }

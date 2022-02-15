@@ -9,10 +9,17 @@ public class ParticleController : MonoBehaviour
         _particleSystem = particleSystem;
     }
 
-    public void ChangeParticleColor(Color newColor)
+    public void ChangeParticleProperties(Color newColor)
     {
         var settings = _particleSystem.main;
         settings.startColor = newColor;
+    }
+
+    public void ChangeParticleProperties(Color newColor, float newDuration)
+    {
+        var settings = _particleSystem.main;
+        settings.startColor = newColor;
+        settings.duration = newDuration;
     }
 
     public void Play()

@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
 {
     [SerializeField] private T prefab;
-    [SerializeField, Range(1, 25)] private int initialQuantity;
+    [SerializeField, Range(1, 50)] private int initialQuantity;
 
     public static GenericObjectPool<T> Instance { get; private set; }
     private Queue<T> objectsQueue = new Queue<T>();

@@ -25,6 +25,7 @@ public class RestartPopup : MonoBehaviour
 
     public void GoHome()
     {
+        GameplayEvents.SendRestartEvent();
         SceneLoader.LoadSceneAsync(SceneEnums.Scene.HomeScene);
     }
 }

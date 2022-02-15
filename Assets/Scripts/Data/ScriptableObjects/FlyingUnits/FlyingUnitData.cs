@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "FlyingUnitData", menuName = "ScriptableObjects/FlyingUnitData", order = 1)]
 public class FlyingUnitData : ScriptableObject
@@ -24,7 +25,7 @@ public class FlyingUnitData : ScriptableObject
         public Sprite leftHalf;
         public Sprite rightHalf;
         public Color splashColor;
-        [Range(1, 20)] public float lobuleSpeed;
+        [Range(-20, 20)] public float lobuleSpeed;
         public int pointsForDestruction;
         
         [Space(10), Header("Bomb params")]
@@ -39,6 +40,11 @@ public class FlyingUnitData : ScriptableObject
         [Space(10), Header("Freeze potion params")]
         public float freezeEffectTime;
         public float slowMultiplier;
+
+        [Space(10), Header("Magnet Params")] 
+        public float magnetLifeTime;
+        public float magneticFieldRadius;
+        public float magnetVelocityMultiplier;
     }
 
     [SerializeField] private FlyingUnitProperties[] flyingUnitProperties;

@@ -38,6 +38,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Feijoa
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -63,6 +66,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Pomelo
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -88,6 +94,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Coconut
     flyingUnitType: 0
     sortingLayerName: Fruit
@@ -113,6 +122,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Bomb
     flyingUnitType: 1
     sortingLayerName: Bomb
@@ -138,6 +150,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Healing Potion
     flyingUnitType: 2
     sortingLayerName: Bomb
@@ -163,13 +178,16 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Fruits Bag
     flyingUnitType: 3
     sortingLayerName: Bomb
     sprite: {fileID: 21300000, guid: 310cf3a5fb79642d48927fbeaf2a8a9b, type: 3}
     particlesColor: {r: 0.9339623, g: 0.2687344, b: 0.2687344, a: 1}
     particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
-    scale: {x: 1, y: 1}
+    scale: {x: 1.1, y: 1.1}
     gravity: 10
     radius: 1
     speed: 13
@@ -188,6 +206,9 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 50, y: 130}
     freezeEffectTime: 0
     slowMultiplier: 0
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
   - name: Freeze Potion
     flyingUnitType: 4
     sortingLayerName: Bomb
@@ -213,3 +234,34 @@ MonoBehaviour:
     fruitLaunchAngleFromBag: {x: 0, y: 0}
     freezeEffectTime: 3
     slowMultiplier: 0.2
+    magnetLifeTime: 0
+    magneticFieldRadius: 0
+    magnetVelocityMultiplier: 0
+  - name: Magnet
+    flyingUnitType: 5
+    sortingLayerName: Bomb
+    sprite: {fileID: 21300000, guid: b23c6340bc44d46f585b481a056e74e4, type: 3}
+    particlesColor: {r: 1, g: 1, b: 1, a: 1}
+    particleSystem: {fileID: 4172301398549739780, guid: f062781f66c7c4e0e81616da2e4467b3, type: 3}
+    scale: {x: 0.9, y: 0.9}
+    gravity: 11
+    radius: 1
+    speed: 15
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+    percent: 5
+    leftHalf: {fileID: 0}
+    rightHalf: {fileID: 0}
+    splashColor: {r: 0, g: 0, b: 0, a: 0}
+    lobuleSpeed: 1
+    pointsForDestruction: 0
+    explosionRadius: 0
+    explosionPower: 0
+    countOfFruitsInBag: {x: 0, y: 0}
+    fruitsInBagVelocity: {x: 0, y: 0}
+    fruitLaunchAngleFromBag: {x: 0, y: 0}
+    freezeEffectTime: 3
+    slowMultiplier: 0.2
+    magnetLifeTime: 5
+    magneticFieldRadius: 10
+    magnetVelocityMultiplier: 10
