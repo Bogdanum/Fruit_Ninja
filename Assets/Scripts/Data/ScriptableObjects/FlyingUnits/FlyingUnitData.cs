@@ -36,6 +36,7 @@ public class FlyingUnitData : ScriptableObject
         public Vector2 countOfFruitsInBag;
         public Vector2 fruitsInBagVelocity;
         public Vector2 fruitLaunchAngleFromBag;
+        public float fruitsInBagOffsetY;
 
         [Space(10), Header("Freeze potion params")]
         public float freezeEffectTime;

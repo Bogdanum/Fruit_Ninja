@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
@@ -19,7 +20,7 @@ public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
     {
         if (objectsQueue.Count == 0)
         {
-            AddObjects(1);
+            AddObjects(2);
         }
         return objectsQueue.Dequeue();
     }

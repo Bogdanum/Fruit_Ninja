@@ -117,7 +117,8 @@ public class FlyingUnitEffect : MonoBehaviour
           var fruit = FlyingUnitPool.Instance.Get();
           fruit.Init(_flyingUnitData, randomFruitProperties);
           fruit.transform.rotation = transform.rotation;
-          fruit.Launch(direction.y, direction.x, transform.position);
+          var startPosition = new Vector3(transform.position.x, transform.position.y + _properties.fruitsInBagOffsetY, 0);
+          fruit.Launch(direction.y, direction.x, startPosition);
      }
      
      private void FreezePotionEffect()

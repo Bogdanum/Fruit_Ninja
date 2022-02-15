@@ -36,6 +36,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -120,6 +123,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -148,6 +152,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -176,6 +181,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -204,6 +210,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 3, y: 5}
     fruitsInBagVelocity: {x: 7, y: 7}
     fruitLaunchAngleFromBag: {x: 50, y: 130}
+    fruitsInBagOffsetY: 1
     freezeEffectTime: 0
     slowMultiplier: 0
     magnetLifeTime: 0
@@ -232,6 +239,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 3
     slowMultiplier: 0.2
     magnetLifeTime: 0
@@ -260,6 +268,7 @@ MonoBehaviour:
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
+    fruitsInBagOffsetY: 0
     freezeEffectTime: 3
     slowMultiplier: 0.2
     magnetLifeTime: 5
