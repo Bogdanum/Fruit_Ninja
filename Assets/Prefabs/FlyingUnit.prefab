@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsBody: {fileID: 7964960493052928941}
+  currentUnit: {fileID: 7599362830573268746}
 --- !u!114 &7964960493052928941
 MonoBehaviour:
   m_ObjectHideFlags: 0

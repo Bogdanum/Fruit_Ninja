@@ -587,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352380004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.833334, y: 5, z: 0}
+  m_LocalPosition: {x: -6.666667, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -617,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367704215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.833334, y: 5, z: 0}
+  m_LocalPosition: {x: 6.666667, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -687,7 +687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &381092423
 PrefabInstance:
@@ -1109,7 +1109,7 @@ Transform:
   - {fileID: 1512167183}
   - {fileID: 450162585}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562466127
 GameObject:
@@ -1316,7 +1316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579583288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.833334, y: -5, z: 0}
+  m_LocalPosition: {x: -6.666667, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -1993,7 +1993,7 @@ Transform:
   - {fileID: 367704216}
   - {fileID: 1366648927}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &947832991
 MonoBehaviour:
@@ -2064,6 +2064,7 @@ Transform:
   - {fileID: 381092424}
   - {fileID: 1958897320}
   - {fileID: 1287720647}
+  - {fileID: 1411565466}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2605,7 +2606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366648926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.833334, y: -5, z: 0}
+  m_LocalPosition: {x: 6.666667, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -2714,11 +2715,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411565465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 977396894}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411565467
@@ -3359,11 +3360,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1917592328}
         m_TargetAssemblyTypeName: ScaleAnimator, Assembly-CSharp
-        m_MethodName: Show
-        m_Mode: 4
+        m_MethodName: ShowWithDelay
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 276368b340eb944e4991f87b053f0dff, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UISettings, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0.5
           m_StringArgument: 
@@ -3426,7 +3427,7 @@ RectTransform:
   m_Children:
   - {fileID: 1481903998}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3606,9 +3607,8 @@ Transform:
   - {fileID: 786621604}
   - {fileID: 762813513}
   - {fileID: 2096262870}
-  - {fileID: 1979260938}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1917592322
 GameObject:
@@ -3913,8 +3913,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2106638881}
-  m_Father: {fileID: 1901118120}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2078678053
 GameObject:

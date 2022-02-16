@@ -1009,6 +1009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 294396569}
+  onStartFadeIn:
+    m_PersistentCalls:
+      m_Calls: []
   onCompleteFadeIn:
     m_PersistentCalls:
       m_Calls:
