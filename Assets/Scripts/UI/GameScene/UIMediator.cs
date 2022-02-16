@@ -11,7 +11,6 @@ public class UIMediator : MonoBehaviour
     private void Awake()
     {
         GameplayEvents.GameOver.AddListener(ShowGameOverPopup);
-        GameplayEvents.Restart.AddListener(HideGameOverPopup);
         InitUI();
     }
 
@@ -20,14 +19,13 @@ public class UIMediator : MonoBehaviour
         faderCanvasGroup.alpha = 1;
         faderPanel.FadeOut(settings.blackoutDurationOnBoot);
     }
-
     private void ShowGameOverPopup()
     {
+        restartPopup.InitScale();
         gameOverPopupPanel.FadeIn(settings.gameOverPopupFadeInDuration);
-        restartPopup.Init();
     }
 
-    private void HideGameOverPopup()
+    public void HideGameOverPopup()
     {
         gameOverPopupPanel.FadeOut(settings.gameOverPopupFadeInDuration);
     }
@@ -35,5 +33,10 @@ public class UIMediator : MonoBehaviour
     public void FadeInFaderPanel()
     {
         faderPanel.FadeIn(settings.blackoutDurationOnBoot);
+    }
+
+    public void LoadHomeScene()
+    {
+        SceneLoader.LoadSceneAsync(SceneEnums.Scene.HomeScene);
     }
 }

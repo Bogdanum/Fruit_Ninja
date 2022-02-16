@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPopupFadeInDuration: 0.8
   blackoutDurationOnBoot: 2
+  timeToShowGameOverPopup: 2

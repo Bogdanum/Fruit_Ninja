@@ -4,19 +4,20 @@ using UnityEngine.EventSystems;
 
 public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public bool interactable = true;
     [SerializeField] private Vector3 onClickScale;
     [SerializeField] private float animationTime;
     [SerializeField] private TweenScaler scaler;
     [SerializeField] private UnityEvent onClickEvent;
-    private bool pointerEnter = false;
+    private bool _pointerEnter = false;
 
     public void OnPointerDown(PointerEventData eventData) => ScaleDown();
 
     public void OnPointerUp(PointerEventData eventData) => ScaleUP();
 
-    public void OnPointerEnter(PointerEventData eventData) => pointerEnter = true;
+    public void OnPointerEnter(PointerEventData eventData) => _pointerEnter = true;
 
-    public void OnPointerExit(PointerEventData eventData) => pointerEnter = false;
+    public void OnPointerExit(PointerEventData eventData) => _pointerEnter = false;
 
     private void ScaleDown()
     {
@@ -31,7 +32,7 @@ public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void ExecuteClickEvent()
     {
-        if (pointerEnter)
+        if (_pointerEnter && interactable)
         {
             onClickEvent.Invoke();
         }

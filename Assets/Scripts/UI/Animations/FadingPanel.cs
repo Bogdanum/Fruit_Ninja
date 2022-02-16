@@ -1,9 +1,13 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FadingPanel : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private UnityEvent onStartFadeIn;
+    [SerializeField] private UnityEvent onCompleteFadeIn;
+    [SerializeField] private UnityEvent onCompleteFadeOut;
     private Tween fadeTween;
 
     private void OnDestroy()
@@ -13,10 +17,12 @@ public class FadingPanel : MonoBehaviour
 
     public void FadeIn(float duration)
     {
+        onStartFadeIn?.Invoke();
         Fade(1, duration, () =>
         {
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
+            onCompleteFadeIn?.Invoke();
         });
     }
 
@@ -26,6 +32,7 @@ public class FadingPanel : MonoBehaviour
         {
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
+            onCompleteFadeOut?.Invoke();
         });
     }
     

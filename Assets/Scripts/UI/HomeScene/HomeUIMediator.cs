@@ -24,6 +24,10 @@ public class HomeUIMediator : MonoBehaviour
     public void StartGame()
     {
         faderPanel.FadeIn(settings.blackoutDurationOnBoot);
+    }
+
+    public void LoadGameScene()
+    {
         SceneLoader.LoadSceneAsync(SceneEnums.Scene.GameScene);
     }
 }
