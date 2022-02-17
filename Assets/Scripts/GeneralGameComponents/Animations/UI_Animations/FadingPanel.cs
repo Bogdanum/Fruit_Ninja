@@ -25,7 +25,7 @@ public class FadingPanel : MonoBehaviour
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
             onCompleteFadeIn?.Invoke();
-            fadeTween.Kill();
+            fadeTween.Kill(true);
         });
     }
 
@@ -37,7 +37,7 @@ public class FadingPanel : MonoBehaviour
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
             onCompleteFadeOut?.Invoke();
-            fadeTween.Kill();
+            fadeTween.Kill(true);
         });
     }
     

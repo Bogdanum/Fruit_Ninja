@@ -148,7 +148,7 @@ MonoBehaviour:
     lobuleSpeed: 1
     pointsForDestruction: 0
     explosionRadius: 5
-    explosionPower: 5
+    explosionPower: 3
     countOfFruitsInBag: {x: 0, y: 0}
     fruitsInBagVelocity: {x: 0, y: 0}
     fruitLaunchAngleFromBag: {x: 0, y: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
     speed: 15
     minRotationSpeed: 20
     maxRotationSpeed: 150
-    percent: 5
+    percent: 10
     leftHalf: {fileID: 0}
     rightHalf: {fileID: 0}
     splashColor: {r: 0, g: 0, b: 0, a: 0}
@@ -273,4 +273,4 @@ MonoBehaviour:
     slowMultiplier: 0.2
     magnetLifeTime: 5
     magneticFieldRadius: 10
-    magnetVelocityMultiplier: 10
+    magnetVelocityMultiplier: 20

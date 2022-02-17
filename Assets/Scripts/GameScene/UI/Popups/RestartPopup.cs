@@ -36,7 +36,6 @@ public class RestartPopup : MonoBehaviour
     public void GoHome()
     {
         SetInteractableButtons(false);
-        GameplayEvents.SendRestartEvent();
     }
 
     private void SetInteractableButtons(bool state)

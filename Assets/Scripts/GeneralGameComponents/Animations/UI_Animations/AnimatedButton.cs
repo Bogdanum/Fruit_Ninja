@@ -19,6 +19,11 @@ public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerExit(PointerEventData eventData) => _pointerEnter = false;
 
+    public void SetInteractable(bool state)
+    {
+        interactable = state;
+    }
+    
     private void ScaleDown()
     {
         scaler.DoScale(onClickScale, animationTime);

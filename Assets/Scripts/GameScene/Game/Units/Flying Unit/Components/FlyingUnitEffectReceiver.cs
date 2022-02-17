@@ -26,7 +26,7 @@ public class FlyingUnitEffectReceiver : MonoBehaviour
 
     private Vector2 CalculateExplosionEffect(Vector3 direction, float vectorLength, float radius, float power)
     {
-        float velocityEffector = vectorLength / radius;
+        float velocityEffector = radius / vectorLength;
         var forceVector = (direction.normalized * power * velocityEffector);
         return forceVector;
     }

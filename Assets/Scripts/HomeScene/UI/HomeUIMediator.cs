@@ -28,6 +28,6 @@ public class HomeUIMediator : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneLoader.LoadSceneAsync(SceneEnums.Scene.GameScene);
+        SceneLoader.LoadScene(SceneEnums.Scene.GameScene);
     }
 }
