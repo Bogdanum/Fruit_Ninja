@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RestartPopup : MonoBehaviour
@@ -14,10 +13,7 @@ public class RestartPopup : MonoBehaviour
 
     public void Init()
     {
-        if (ScoreManager.NewBest)
-        {
-            newBestScore.SetActive(true);
-        }
+        newBestScore.SetActive(ScoreManager.NewBest);
         accrualAnimator.AccrualAnimation(score, Random.Range(0, ScoreManager.Score), ScoreManager.Score);
         accrualAnimator.AccrualAnimation(bestScore, Random.Range(0, ScoreManager.BestScore), ScoreManager.BestScore);
         SetInteractableButtons(true);
@@ -32,6 +28,7 @@ public class RestartPopup : MonoBehaviour
     {
         SetInteractableButtons(false);
         GameplayEvents.SendRestartEvent();
+        newBestScore.SetActive(false);
     }
 
     public void GoHome()
