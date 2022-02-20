@@ -6,15 +6,23 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private Text scoreText;
     [SerializeField] private Text bestScoreText;
     [SerializeField] private AccrualAnimator animator;
+    [SerializeField] private StorageProvider storageProvider;
 
     private int currScore;
     private int bestScore;
     private void Awake()
     {
-        InitBestScore(PlayerData.BestScore);
+        int bestScoreInStorage = LoadBestScore();
+        InitBestScore(bestScoreInStorage);
         UIEvents.OnScoreUpdate.AddListener(UpdateScoreLabel);
         UIEvents.OnBestScoreUpdate.AddListener(UpdateBestScore);
         GameplayEvents.Restart.AddListener(Restart);
+    }
+
+    private int LoadBestScore()
+    {
+        GameData gameData = storageProvider.GetStorage().Load();
+        return gameData.BestScore;
     }
 
     private void InitBestScore(int score)

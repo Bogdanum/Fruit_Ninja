@@ -446,6 +446,7 @@ MonoBehaviour:
   faderPanel: {fileID: 1585998392}
   faderCG: {fileID: 294396569}
   bestScore: {fileID: 1960276505}
+  storageProvider: {fileID: 11400000, guid: 333c3690750f84c3c933a77ef369e606, type: 2}
 --- !u!1 &824662630
 GameObject:
   m_ObjectHideFlags: 0

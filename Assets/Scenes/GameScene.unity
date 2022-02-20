@@ -587,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352380004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.666667, y: 5, z: 0}
+  m_LocalPosition: {x: -10.833334, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -617,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367704215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.666667, y: 5, z: 0}
+  m_LocalPosition: {x: 10.833334, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdcbff5730d84499935f2d6e5f58cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7599362830573268746, guid: a6511fca972f241ff8b416100f00064a, type: 3}
+  prefab: {fileID: -3807378269374435993, guid: a6511fca972f241ff8b416100f00064a, type: 3}
   initialQuantity: 25
 --- !u!1 &463239593
 GameObject:
@@ -1316,7 +1316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579583288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.666667, y: -5, z: 0}
+  m_LocalPosition: {x: -10.833334, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -2041,6 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bdf1884cd2c4dbb8ca684b0c57a5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsPersistent: 0
   _settings: {fileID: 11400000, guid: ebd0a4ae2147b404380ab51336b9b11e, type: 2}
   spawners:
   - {fileID: 622222585875372677}
@@ -2299,6 +2300,7 @@ MonoBehaviour:
   scoreText: {fileID: 85861103}
   bestScoreText: {fileID: 537465107}
   animator: {fileID: 1056133331}
+  storageProvider: {fileID: 11400000, guid: 333c3690750f84c3c933a77ef369e606, type: 2}
 --- !u!114 &1056133331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366648926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.666667, y: -5, z: 0}
+  m_LocalPosition: {x: 10.833334, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947832990}
@@ -3710,6 +3712,7 @@ MonoBehaviour:
   newBestScore: {fileID: 984379811}
   accrualAnimator: {fileID: 1917592327}
   scaleAnimator: {fileID: 1917592328}
+  storageProvider: {fileID: 11400000, guid: 333c3690750f84c3c933a77ef369e606, type: 2}
 --- !u!114 &1917592327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4049,6 +4052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a04671d503d47f89863f1b8eab92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storageProvider: {fileID: 11400000, guid: 333c3690750f84c3c933a77ef369e606, type: 2}
 --- !u!1 &2106638880
 GameObject:
   m_ObjectHideFlags: 0

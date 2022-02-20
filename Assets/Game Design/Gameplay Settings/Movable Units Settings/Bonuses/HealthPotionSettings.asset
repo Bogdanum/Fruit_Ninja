@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcf745427691488395b9ac61d6872aa, type: 3}
+  m_Name: HealthPotionSettings
+  m_EditorClassIdentifier: 
+  sortingLayerName: Bomb
+  spawnChanceInPack: 5
+  maxCountInPackInPercent: 10
+  unitEffect: {fileID: 6695482151538170760, guid: 910aa2f2d04cb4f689bf965abdafbe9d, type: 3}
+  physicsParameters:
+    scale: {x: 1, y: 1, z: 1}
+    speed: 15
+    mass: 11
+    radius: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+  visualParameters:
+    sprite: {fileID: 21300000, guid: 01cf1af15dd804991aa8acbc91817197, type: 3}
+    particleSystem: {fileID: 7703304556862745692, guid: 3102784d728714ea499c766616f0053c, type: 3}
+    particlesColor: {r: 0.9333334, g: 0.27058825, b: 0.26666668, a: 1}

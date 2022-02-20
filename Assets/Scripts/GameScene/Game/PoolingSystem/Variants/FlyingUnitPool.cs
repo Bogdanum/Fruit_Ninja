@@ -1,3 +1,3 @@
-public class FlyingUnitPool : GenericObjectPool<FlyingUnit>
+public class FlyingUnitPool : GenericObjectPool<BaseFlyingUnit>
 {
 }

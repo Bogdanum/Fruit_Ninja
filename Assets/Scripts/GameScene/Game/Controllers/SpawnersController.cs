@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnersController : MonoBehaviour
+public class SpawnersController : Singleton<SpawnersController>
 {
    [SerializeField] private SpawnerControllerSettings _settings;
    [SerializeField] private Spawner[] spawners;
@@ -14,8 +14,9 @@ public class SpawnersController : MonoBehaviour
    private float _refireRateReductionStep;
    private bool active = true;
 
-   private void Awake()
+   protected override void Awake()
    {
+      base.Awake();
       Init();
       InitSpawners();
       GameplayEvents.IncreasingComplexity.AddListener(DecreaseRefireRate);
@@ -96,5 +97,10 @@ public class SpawnersController : MonoBehaviour
          }
       }
       return _spawners[Random.Range(0, _spawners.Length)];
+   }
+
+   public FlyingUnitSettings GetRandomFruitSettings()
+   {
+      return spawners[0].Settings.GetRandomFruitSettings();
    }
 }

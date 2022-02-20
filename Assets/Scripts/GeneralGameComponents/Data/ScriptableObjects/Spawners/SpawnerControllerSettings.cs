@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpawnerControllerSettings", menuName = "ScriptableObjects/SpawnerControllerSettings", order = 3)]
+[CreateAssetMenu(fileName = "SpawnerControllerSettings", menuName = "ScriptableObjects/GameplaySettings/Spawners/SpawnerControllerSettings", order = 1)]
 public class SpawnerControllerSettings : ScriptableObject
 {
     public float initialRefireRate;

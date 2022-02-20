@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956cbb2e207ba4074b819a91af2d1c34, type: 3}
+  m_Name: MagnetSettings
+  m_EditorClassIdentifier: 
+  sortingLayerName: Bomb
+  spawnChanceInPack: 1
+  maxCountInPackInPercent: 10
+  unitEffect: {fileID: 6350152304717217721, guid: 710ea931f2288473880e0fa0b9d9766c, type: 3}
+  physicsParameters:
+    scale: {x: 0.9, y: 0.9, z: 1}
+    speed: 15
+    mass: 11
+    radius: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+  magnetParameters:
+    magnetLifeTime: 5
+    magneticFieldRadius: 10
+    magnetVelocityMultiplier: 20
+  visualParameters:
+    sprite: {fileID: 21300000, guid: b23c6340bc44d46f585b481a056e74e4, type: 3}
+    particleSystem: {fileID: 4172301398549739780, guid: f062781f66c7c4e0e81616da2e4467b3, type: 3}
+    particlesColor: {r: 1, g: 1, b: 1, a: 1}

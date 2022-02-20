@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d73f67c45b84667a5a2ad375385e94, type: 3}
+  m_Name: PomeloSettings
+  m_EditorClassIdentifier: 
+  sortingLayerName: Fruit
+  spawnChanceInPack: 50
+  maxCountInPackInPercent: 100
+  unitEffect: {fileID: 4028091296805090200, guid: 184694f4e15b040b18ae6c608c1185f6, type: 3}
+  physicsParameters:
+    scale: {x: 1, y: 1, z: 1}
+    speed: 13
+    mass: 10
+    radius: 1
+    minRotationSpeed: 20
+    maxRotationSpeed: 150
+  fruitProperties:
+    name: Pomelo
+    lobuleSpeed: 2
+    pointsForCutting: 10
+  visualParameters:
+    sprite: {fileID: 6824485124193487074, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    leftLobule: {fileID: -3102792882781756944, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    rightLobule: {fileID: -3538306632821447154, guid: 914332039d2c8497ea20e3ecdd60d1af, type: 3}
+    particleSystem: {fileID: 4513579889639775635, guid: d0e664d83834b4a86ab31c0fe34778bd, type: 3}
+    juiceColor: {r: 0.8313726, g: 0.69411767, b: 0.41960788, a: 1}
+    splashOnWallColor: {r: 0.8313726, g: 0.73333335, b: 0.53333336, a: 0.90588236}

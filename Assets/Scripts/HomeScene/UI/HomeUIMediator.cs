@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HomeUIMediator : MonoBehaviour
 {
     [SerializeField] private UISettings settings;
+    [SerializeField] private StorageProvider storageProvider;
     [SerializeField] private FadingPanel faderPanel;
     [SerializeField] private CanvasGroup faderCG;
     [SerializeField] private Text bestScore;
@@ -15,10 +16,16 @@ public class HomeUIMediator : MonoBehaviour
 
     private void InitUI()
     {
-        bestScore.text = PlayerData.BestScore.ToString();
+        bestScore.text = LoadBestScore();
 
         faderCG.alpha = 1f;
         faderPanel.FadeOut(settings.blackoutDurationOnBoot);
+    }
+
+    private string LoadBestScore()
+    {
+        GameData gameData = storageProvider.GetStorage().Load();
+        return gameData.BestScore.ToString();
     }
 
     public void StartGame()

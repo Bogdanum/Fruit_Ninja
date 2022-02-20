@@ -16,6 +16,16 @@ MonoBehaviour:
   maxPackOfVegetablesSize: 3
   finalMaxPackOfVegetablesSize: 5
   numberOfComplicationsToIncreasePack: 8
-  vegetableData: {fileID: 11400000, guid: d8d1073ce318e425a9483f5e0160acbe, type: 2}
+  simpleFlyingUnitsSettings:
+  - {fileID: 11400000, guid: b195550863b7a45bc8084e0a32aac2d6, type: 2}
+  - {fileID: 11400000, guid: 06e9ec457182e4127b7abf9f30cb5674, type: 2}
+  - {fileID: 11400000, guid: a616d6c23d0b241a682f33b05af0419b, type: 2}
+  - {fileID: 11400000, guid: 858fb41c440354a50baf6173f029c52d, type: 2}
+  bonusesSettings:
+  - {fileID: 11400000, guid: fe8bc92ebe95f45ae904b8822e340c13, type: 2}
+  - {fileID: 11400000, guid: a4b423b6d77d843c1a250f7b27d69246, type: 2}
+  - {fileID: 11400000, guid: 4f6fc96aa0b8a4b9194aff6e6af8ff1d, type: 2}
+  - {fileID: 11400000, guid: 759b867e7ce0341d7abb1625b6e3cb00, type: 2}
+  - {fileID: 11400000, guid: 854c91f23aa364f9ab91d19c6f802f94, type: 2}
   spawnChanceInPercent: 10
   delayBetweenShotsInPack: 0.3

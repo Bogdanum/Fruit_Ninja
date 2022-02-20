@@ -8,12 +8,13 @@ public class PointsForCutting : MonoBehaviour
     [SerializeField] private TweenScaler scaler;
     [SerializeField] private GameObject combo;
 
-    public void Init(int points, int angle, float lifeTime)
+    public void Init(int points, int angle, float lifeTime, bool isCombo)
     {
         transform.localScale = Vector3.zero;
         StartCoroutine(LifeTime(lifeTime));
         transform.Rotate(new Vector3(0, 0, 1), angle);
         pointsForCutting.text = "+" + points;
+        combo.SetActive(isCombo);
     }
 
     private IEnumerator LifeTime(float seconds)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HealthCounterSettings", menuName = "ScriptableObjects/HealthCounterSettings", order = 7)]
+[CreateAssetMenu(fileName = "HealthCounterSettings", menuName = "ScriptableObjects/GameplaySettings/HealthCounterSettings", order = 5)]
 public class HealthCounterSettings : ScriptableObject
 {
     public int initialHealth;

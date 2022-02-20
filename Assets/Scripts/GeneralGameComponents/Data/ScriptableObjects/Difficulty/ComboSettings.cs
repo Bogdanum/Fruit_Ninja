@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ComboSettings", menuName = "ScriptableObjects/ComboSettings", order = 10)]
+[CreateAssetMenu(fileName = "ComboSettings", menuName = "ScriptableObjects/GameplaySettings/ComboSettings", order = 2)]
 public class ComboSettings : ScriptableObject
 {
     public int maxMultiplier;

@@ -11,4 +11,5 @@ public abstract class Spawner : MonoBehaviour, ISpawner
     }
 
     public abstract int SpawnChanceInPercent { get; }
+    public abstract SpawnerSettings Settings { get; }
 }

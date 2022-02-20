@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +36,7 @@ public class HealthUI : MonoBehaviour
     
     private void SetGridSize(int visibleHeartsCount)
     {
-        var gridSizes = PlayerData.HealthGridSizes;
+        var gridSizes = LoadGridSize();
         foreach (var kv in gridSizes)
         {
             if (visibleHeartsCount < kv.Key)
@@ -45,5 +46,11 @@ public class HealthUI : MonoBehaviour
             }
         }
         grid.cellSize = new Vector2(5, 5);
+    }
+
+    private Dictionary<int, float> LoadGridSize()
+    {
+        GameData gameData = new GameData();
+        return gameData.HealthGridSizes;
     }
 }

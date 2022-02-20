@@ -3,7 +3,7 @@ using UnityEngine;
 public class RadiusVisualisation : MonoBehaviour
 {
 #if  UNITY_EDITOR
-    [SerializeField] private FlyingUnit unit;
+    [SerializeField] private BaseFlyingUnit unit;
     
     [SerializeField] private bool Visible = false;
     [SerializeField] private Color lineColor = Color.yellow;
@@ -13,7 +13,7 @@ public class RadiusVisualisation : MonoBehaviour
         if (Visible)
         {
             Gizmos.color = lineColor;
-            Gizmos.DrawWireSphere(transform.position, unit.GetRadius());
+            Gizmos.DrawWireSphere(transform.position, unit.Radius);
         }
     }
 #endif

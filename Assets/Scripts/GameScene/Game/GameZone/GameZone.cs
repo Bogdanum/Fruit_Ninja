@@ -3,6 +3,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class GameZone : Singleton<GameZone>
 {
+    public const float deathlineOffset = 1.5f;
     [SerializeField] private Transform upperLeftCorner;
     [SerializeField] private Transform lowerLeftCorner;
     [SerializeField] private Transform topRightCorner;
@@ -56,4 +57,6 @@ public class GameZone : Singleton<GameZone>
 
     public float RightLine => BottomRightCorner.x;
     public float LeftLine => LowerLeftCorner.x;
+
+    public float DeathlineOffset => deathlineOffset;
 }

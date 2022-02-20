@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UISettings", menuName = "ScriptableObjects/UISettings", order = 8)]
+[CreateAssetMenu(fileName = "UISettings", menuName = "ScriptableObjects/UI/UISettings", order = 1)]
 public class UISettings : ScriptableObject
 {
    [Range(0.1f, 2)] public float gameOverPopupFadeInDuration;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RestartPopup : MonoBehaviour
@@ -10,6 +11,7 @@ public class RestartPopup : MonoBehaviour
     [SerializeField] private GameObject newBestScore;
     [SerializeField] private AccrualAnimator accrualAnimator;
     [SerializeField] private ScaleAnimator scaleAnimator;
+    [SerializeField] private StorageProvider storageProvider;
 
     public void Init()
     {
@@ -18,8 +20,15 @@ public class RestartPopup : MonoBehaviour
             newBestScore.SetActive(true);
         }
         accrualAnimator.AccrualAnimation(score, Random.Range(0, ScoreManager.Score), ScoreManager.Score);
-        accrualAnimator.AccrualAnimation(bestScore, Random.Range(0, PlayerData.BestScore), PlayerData.BestScore);
+        int bestScoreInStorage = LoadBestScore();
+        accrualAnimator.AccrualAnimation(bestScore, Random.Range(0, bestScoreInStorage), bestScoreInStorage);
         SetInteractableButtons(true);
+    }
+
+    private int LoadBestScore()
+    {
+        GameData gameData = storageProvider.GetStorage().Load();
+        return gameData.BestScore;
     }
 
     public void InitScale()
