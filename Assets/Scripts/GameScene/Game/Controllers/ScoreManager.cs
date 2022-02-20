@@ -5,6 +5,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private StorageProvider storageProvider;
     
     public static int Score { get; private set; }
+    public static int BestScore { get; private set; }
     public static bool NewBest { get; private set; }
     private bool gameActive = true;
 
@@ -15,8 +16,15 @@ public class ScoreManager : MonoBehaviour
         GameplayEvents.Restart.AddListener(Restart);
         NewBest = false;
         Score = 0;
+        BestScore = LoadBestScore();
     }
 
+    private int LoadBestScore()
+    {
+        GameData gameData = storageProvider.GetStorage().Load();
+        return gameData.BestScore;
+    }
+    
     private void IncrementScore(int value)
     {
         if (!gameActive)
@@ -30,19 +38,18 @@ public class ScoreManager : MonoBehaviour
 
     private void CheckBestScore()
     {
-        int bestScoreInStorage = LoadBestScore();
-        if (Score > bestScoreInStorage)
+        if (Score > BestScore)
         {
-            SaveBestScore(Score);
-            UIEvents.SentBestScoreUpdateEvent(Score);
+            BestScore = Score;
+            UIEvents.SentBestScoreUpdateEvent(BestScore);
             NewBest = true;
         }
     }
 
-    private int LoadBestScore()
+    private void GameOver()
     {
-        GameData gameData = storageProvider.GetStorage().Load();
-        return gameData.BestScore;
+        gameActive = false;
+        SaveBestScore(BestScore);
     }
 
     private void SaveBestScore(int score)
@@ -53,9 +60,7 @@ public class ScoreManager : MonoBehaviour
         };
         storageProvider.GetStorage().Save(gameData);
     }
-
-    private void GameOver() => gameActive = false;
-
+    
     private void Restart()
     {
         gameActive = true;
