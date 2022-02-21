@@ -37,7 +37,7 @@ public class BaseFlyingUnit : MonoBehaviour
         transform.position = startPosition;
         transform.localScale = _settings.physicsParameters.scale;
         gameObject.SetActive(true);
-        physicsBody.Init(_settings.physicsParameters.mass, direction.y, direction.x, RandomRotationSpeed());
+        physicsBody.Init(_settings.physicsParameters.mass, direction.y, direction.x, RandomRotationSpeed(), _settings.physicsParameters.maxScale);
     }
     
     private float RandomRotationSpeed()

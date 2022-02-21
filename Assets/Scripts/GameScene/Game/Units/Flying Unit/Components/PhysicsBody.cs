@@ -4,6 +4,7 @@ public class PhysicsBody : MonoBehaviour
 {
     private bool _isMagnetActive = false;
     private Vector3 _magnetPosition;
+    private Vector3 _maxScale;
     private float _magneticFieldRadius;
     private float _magnetVelocityMultiplier;
     private float _gravity;
@@ -21,12 +22,13 @@ public class PhysicsBody : MonoBehaviour
         GameplayEvents.StopMagnetEffect.AddListener(MagnetDeactivated);
     }
 
-    public void Init(float gravity, float verticalVelocity, float speed, float rotationSpeed)
+    public void Init(float gravity, float verticalVelocity, float speed, float rotationSpeed, Vector3 maxScale)
     {
         _gravity = gravity;
         _verticalVelocity = verticalVelocity;
         _speed = speed;
         _rotationSpeed = rotationSpeed;
+        _maxScale = maxScale;
         Active = true;
     }
 
@@ -55,8 +57,8 @@ public class PhysicsBody : MonoBehaviour
         _verticalVelocity -= _gravity * deltaTime;
         var motionVector = GetMotionVector();
         transform.position += motionVector * deltaTime;
-        
         transform.Rotate(new Vector3(0, 0, _rotationSpeed) * deltaTime);
+        DoScale(_verticalVelocity, deltaTime);
     }
 
     private Vector3 GetMotionVector()
@@ -72,6 +74,13 @@ public class PhysicsBody : MonoBehaviour
             }
         }
         return new Vector3(_speed, _verticalVelocity, 0);
+    }
+
+    private void DoScale(float verticalVelocity, float deltaTime)
+    {
+        var scaler = new Vector3(verticalVelocity, verticalVelocity, 0).normalized * deltaTime * 0.5f;
+        if (transform.localScale.magnitude >= _maxScale.magnitude && scaler.x > 0) return;
+        transform.localScale += scaler;
     }
 
     private void SlowDown(float slowMultiplier)

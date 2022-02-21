@@ -18,6 +18,7 @@ MonoBehaviour:
   unitEffect: {fileID: 6695482151538170760, guid: 910aa2f2d04cb4f689bf965abdafbe9d, type: 3}
   physicsParameters:
     scale: {x: 1, y: 1, z: 1}
+    maxScale: {x: 1.2, y: 1.2, z: 1}
     speed: 15
     mass: 11
     radius: 1

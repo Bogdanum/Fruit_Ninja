@@ -49,7 +49,8 @@ public class SimpleUnitEffect : Effect
     {
         var half = PoolOfHalves.Instance.Get();
         var fruitTransform = baseFlyingUnit.transform;
-        half.Init(physicsBody, _concreteSettings.physicsParameters.mass, sprite, fruitTransform.position,  fruitTransform.localScale, lobuleSpeed);
+        var physicsParams = _concreteSettings.physicsParameters;
+        half.Init(physicsBody, physicsParams.mass, sprite, fruitTransform.position,  fruitTransform.localScale, physicsParams.maxScale, lobuleSpeed);
         return half;
     }
      

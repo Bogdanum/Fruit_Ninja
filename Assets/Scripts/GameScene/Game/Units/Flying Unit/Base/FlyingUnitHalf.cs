@@ -13,14 +13,14 @@ public class FlyingUnitHalf : MonoBehaviour
         GameplayEvents.Restart.AddListener(ReturnToPool);
     }
 
-    public void Init(PhysicsBody physics, float mass,Sprite sprite, Vector3 startPosition, Vector3 localScale, float lobuleSpeed)
+    public void Init(PhysicsBody physics, float mass,Sprite sprite, Vector3 startPosition, Vector3 localScale, Vector3 maxScale, float lobuleSpeed)
    {
        renderer.sprite = sprite;
        renderer.sortingOrder = transform.GetInstanceID();
        transform.localScale = localScale;
        transform.position = startPosition;
        gameObject.SetActive(true);
-       physicsBody.Init(mass, physics._verticalVelocity, physics._speed, physics._rotationSpeed);
+       physicsBody.Init(mass, physics._verticalVelocity, physics._speed, physics._rotationSpeed, maxScale);
        lobuleMovement.SetSpeed(lobuleSpeed);
    }
 

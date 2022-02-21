@@ -14,6 +14,7 @@ public class FlyingUnitSettings : ScriptableObject
     public struct PhysicsParameters
     {
         public Vector3 scale;
+        public Vector3 maxScale;
         public float speed;
         public float mass;
         public float radius;
